@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/mtg_stats/static/css/main.d3a0b0b3.css",
+    "main.css": "/mtg_stats/static/css/main.f855e6bc.css",
     "main.js": "/mtg_stats/static/js/main.b116898a.js",
     "static/js/453.cb6af57d.chunk.js": "/mtg_stats/static/js/453.cb6af57d.chunk.js",
     "static/media/logo.svg": "/mtg_stats/static/media/logo.1daa57c55fbad120971b87386aa60c7e.svg",
     "index.html": "/mtg_stats/index.html",
-    "main.d3a0b0b3.css.map": "/mtg_stats/static/css/main.d3a0b0b3.css.map",
+    "main.f855e6bc.css.map": "/mtg_stats/static/css/main.f855e6bc.css.map",
     "main.b116898a.js.map": "/mtg_stats/static/js/main.b116898a.js.map",
     "453.cb6af57d.chunk.js.map": "/mtg_stats/static/js/453.cb6af57d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d3a0b0b3.css",
+    "static/css/main.f855e6bc.css",
     "static/js/main.b116898a.js"
   ]
 }
