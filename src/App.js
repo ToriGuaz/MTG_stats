@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-import Component from './Component';
+import Usuario from './Usuario';
+import Oponente from './Oponente';
 
 function App() {
   return (
@@ -8,9 +9,10 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          MTG indicador de stats - coming soon
+          MTG
         </p>
-        <Component/>
+        <Usuario/>
+        <Oponente/>
       </header>
     </div>
   );
