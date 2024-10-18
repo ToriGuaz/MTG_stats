@@ -1,0 +1,50 @@
+.contenedorUsuario {
+    padding: 20px; /* Espaciado interno */
+    border-radius: 12px; /* Esquinas redondeadas */
+    background-color: #b4a2a2; /* Color de fondo suave */
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Borde delgado */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    text-align: center; /* Centrar el texto */
+    margin: 20px; /* Margen externo */
+    box-shadow: 
+      0 10px 20px rgba(0, 0, 0, 0.15), /* Sombra exterior */
+      inset 0 2px 4px rgba(255, 255, 255, 0.8); /* Sombra interior para efecto 3D */
+  }
+  
+  h1 {
+    font-size: 24px; /* Tamaño de fuente para el nombre */
+    margin-bottom: 10px; /* Espaciado inferior */
+    color: #333; /* Color del texto */
+  }
+  
+  h2 {
+    font-size: 20px; /* Tamaño de fuente para la vida */
+    margin-bottom: 20px; /* Espaciado inferior */
+    color: #555; /* Color del texto */
+  }
+  
+  .buttonStyle {
+    padding: 10px 15px; /* Espaciado interno */
+    font-size: 18px; /* Tamaño de fuente */
+    border-radius: 8px; /* Esquinas redondeadas */
+    background-color: #6200ea; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para el botón */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    margin: 5px; /* Espacio entre botones */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
+    box-shadow: 
+      0 10px 20px rgba(0, 0, 0, 0.15), /* Sombra exterior */
+      inset 0 2px 4px rgba(255, 255, 255, 0.8); /* Sombra interior para efecto 3D */
+  }
+  
+  .buttonStyle:hover {
+    background-color: #7c4dff; /* Color de fondo en hover */
+    transform: translateY(-2px); /* Levantar ligeramente el botón */
+  }
+  
+  .buttonStyle:active {
+    transform: translateY(2px); /* Simula que el botón se presiona */
+  }
+  
