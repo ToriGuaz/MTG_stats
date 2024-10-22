@@ -2,17 +2,22 @@ import React, { useState } from 'react';
 import './Oponente.css';
 
 const Oponente = () => {
-  const [vida, setVida] = useState(40); // Vida inicial
-  const nombre = 'Evelina'; // Nombre del oponente
+  const [oponentes, setOponentes] = useState([
+    { nombre: 'Evelina', vida: 40 },
+    { nombre: 'Kragg', vida: 40 },
+    { nombre: 'Thorn', vida: 40 }
+  ]); // Array inicial de oponentes
 
   return (
-    <div className="contenedorOponente">
-      <h1>{nombre}</h1>
-      <h2>Vida: {vida}</h2>
+    <div className="contenedorOponentes">
+      {oponentes.map((oponente, index) => (
+        <div key={index} className="contenedorOponente">
+          <h1>{oponente.nombre}</h1>
+          <h2>Vida: {oponente.vida}</h2>
+        </div>
+      ))}
     </div>
   );
 };
-
-
 
 export default Oponente;
