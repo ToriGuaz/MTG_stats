@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Usuario.css';
 
 const Usuario = () => {
-  const [vida, setVida] = useState(20); // La vida comienza en 20
+  const [vida, setVida] = useState(40); // La vida comienza en 20
   const nombre = 'Toribia'; // Variable para el nombre
 
   const aumentarVida = () => {

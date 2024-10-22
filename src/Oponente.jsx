@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Oponente.css';
 
 const Oponente = () => {
-  const [vida, setVida] = useState(20); // Vida inicial
+  const [vida, setVida] = useState(40); // Vida inicial
   const nombre = 'Evelina'; // Nombre del oponente
 
   return (
