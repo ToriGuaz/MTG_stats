@@ -29,12 +29,12 @@ import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBTzfDF8Hqxob52odaaoyUmTOhbu54jbIY",
+  apiKey: "ACA VA EL API KEY",
   authDomain: "mtgstats-864da.firebaseapp.com",
   projectId: "mtgstats-864da",
   storageBucket: "mtgstats-864da.appspot.com",
   messagingSenderId: "68211953531",
-  appId: "1:68211953531:web:3619c6cc482a2bfeeb77de",
+  appId: "NO SE SI ESTO ERA PEGRILOSO TAMBIEN"  - TODO ESTO ESTA EN CONFIGRACION DE FIREBASE
   measurementId: "G-78HCZP9LD6"
 };
 
