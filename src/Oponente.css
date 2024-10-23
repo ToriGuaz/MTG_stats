@@ -1,3 +1,8 @@
+.contenedorOponentes {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .contenedorOponente {
     width: 180px; /* Ancho del contenedor */
     height: 180px; /* Alto del contenedor */

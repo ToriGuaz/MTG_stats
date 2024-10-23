@@ -1,4 +1,5 @@
 .buttonStyle {
+    margin-top: 2vh;
     padding: 10px 15px; /* Espaciado interno */
     font-size: 18px; /* Tamaño de fuente */
     border-radius: 8px; /* Esquinas redondeadas */
