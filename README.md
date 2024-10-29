@@ -29,7 +29,7 @@ import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "ACA VA EL API KEY",
+  api--Key: "ACA VA EL API KEY",
   authDomain: "mtgstats-864da.firebaseapp.com",
   projectId: "mtgstats-864da",
   storageBucket: "mtgstats-864da.appspot.com",
