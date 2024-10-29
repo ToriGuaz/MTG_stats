@@ -1,6 +1,6 @@
 .contenedorUsuario {
     padding: 20px; /* Espaciado interno */
-    border-radius: 12px; /* Esquinas redondeadas */
+    /*border-radius: 12px; /* Esquinas redondeadas */
     background-color: #b4a2a2; /* Color de fondo suave */
     border: 1px solid rgba(0, 0, 0, 0.1); /* Borde delgado */
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
