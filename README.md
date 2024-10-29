@@ -19,4 +19,7 @@ https://app.diagrams.net/?mode=google#G1hwXSY0qRPoFtTNKK46L8FBut0fkGwJR9#%7B%22p
 https://www.pivotaltracker.com/n/projects/2722445
 
 
+Seguridad:
+instale dompurify para proteger la seguridad de la informacion que se ingresa
+edite los imputs para que regulen los simbolos que si se pueden poner y el largo del imput
 

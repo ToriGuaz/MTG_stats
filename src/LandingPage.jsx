@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { db } from './firebaseConfig';
 import { ref, set, onValue } from 'firebase/database';
+import DOMPurify from 'dompurify';
 
 const LandingPage = ({ onJoinGame }) => {
   const [nombre, setNombre] = useState('');
@@ -35,20 +36,47 @@ const LandingPage = ({ onJoinGame }) => {
     }
   };
 
+  // Función de sanitización y validación
+  const handleNombreChange = (e) => {
+    const value = e.target.value;
+    const isValid = /^[a-zA-Z0-9\s]*$/.test(value); 
+
+    if (isValid && value.length <= 20) {
+      const sanitizedValue = DOMPurify.sanitize(value);
+      setNombre(sanitizedValue);
+    } else if (!isValid) {
+      alert("Caracteres no válidos. Usa solo letras, números y espacios.");
+    }
+  };
+
+  const handleNombrePartidaChange = (e) => {
+    const value = e.target.value;
+    const isValid = /^[a-zA-Z0-9\s]*$/.test(value); 
+
+    if (isValid && value.length <= 20) {
+      const sanitizedValue = DOMPurify.sanitize(value);
+      setNombrePartida(sanitizedValue);
+    } else if (!isValid) {
+      alert("Caracteres no válidos. Usa solo letras, números y espacios.");
+    }
+  };
+
   return (
     <div>
       <h1>Magic: The Gathering - Contador de Vidas</h1>
       <input
         type="text"
         value={nombre}
-        onChange={(e) => setNombre(e.target.value)}
+        onChange={handleNombreChange} 
         placeholder="Ingresa tu nombre"
+        maxLength={20} 
       />
       <input
         type="text"
         value={nombrePartida}
-        onChange={(e) => setNombrePartida(e.target.value)}
+        onChange={handleNombrePartidaChange} 
         placeholder="Ingresa el nombre de la partida"
+        maxLength={10} 
       />
       <button onClick={handleCreateGame}>Crear Partida</button>
       <button onClick={handleJoinGame}>Unirse a Partida</button>
