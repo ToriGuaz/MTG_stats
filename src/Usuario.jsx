@@ -1,62 +1,32 @@
 import React, { useState, useEffect } from 'react';
-import { db } from './firebaseConfig'; // Asegúrate de importar db
-import { ref, onValue, set } from 'firebase/database';
-import './Usuario.css';
+import { db } from './firebaseConfig';
+import { ref, set, onValue } from 'firebase/database';
 
-const Usuario = ({ userId }) => {
+const Usuario = ({ gameId }) => {
+  const nombreJugador = localStorage.getItem('nombreJugador');
   const [vida, setVida] = useState(40);
-  const nombre = 'Toribia';
 
-  // Cargar la vida desde la base de datos al iniciar
   useEffect(() => {
-    const vidaRef = ref(db, `users/${userId}/vida`);
-    onValue(vidaRef, (snapshot) => {
-      const vidaValue = snapshot.val();
-      if (vidaValue !== null) {
-        setVida(vidaValue);
-      }
+    const jugadorRef = ref(db, `games/${gameId}/jugadores/${nombreJugador}/vida`);
+    onValue(jugadorRef, (snapshot) => {
+      setVida(snapshot.val() || 40);
     });
-  }, [userId]);
+  }, [gameId, nombreJugador]);
 
-  // Actualizar vida en la base de datos
-  const actualizarVidaEnDB = (nuevaVida) => {
-    set(ref(db, `users/${userId}/vida`), nuevaVida);
-  };
-
-  const aumentarVida = () => {
-    const nuevaVida = vida + 1;
+  const actualizarVida = (nuevaVida) => {
     setVida(nuevaVida);
-    actualizarVidaEnDB(nuevaVida);
-  };
-
-  const disminuirVida = () => {
-    const nuevaVida = vida - 1;
-    setVida(nuevaVida);
-    actualizarVidaEnDB(nuevaVida);
-  };
-
-  const aumentarVida5 = () => {
-    const nuevaVida = vida + 5;
-    setVida(nuevaVida);
-    actualizarVidaEnDB(nuevaVida);
-  };
-
-  const disminuirVida5 = () => {
-    const nuevaVida = vida - 5;
-    setVida(nuevaVida);
-    actualizarVidaEnDB(nuevaVida);
+    const jugadorRef = ref(db, `games/${gameId}/jugadores/${nombreJugador}/vida`);
+    set(jugadorRef, nuevaVida);
   };
 
   return (
     <div className="contenedorUsuario">
-      <h1>{nombre}</h1>
+      <h1>{nombreJugador}</h1>
       <h2>Vida: {vida}</h2>
-      <div>
-        <button className="buttonStyle" onClick={aumentarVida}>+</button>
-        <button className="buttonStyle" onClick={disminuirVida}>-</button>
-        <button className="buttonStyle" onClick={aumentarVida5}>+5</button>
-        <button className="buttonStyle" onClick={disminuirVida5}>-5</button>
-      </div>
+      <button onClick={() => actualizarVida(vida + 1)}>+1</button>
+      <button onClick={() => actualizarVida(vida - 1)}>-1</button>
+      <button onClick={() => actualizarVida(vida + 5)}>+5</button>
+      <button onClick={() => actualizarVida(vida - 5)}>-5</button>
     </div>
   );
 };

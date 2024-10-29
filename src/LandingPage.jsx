@@ -7,7 +7,6 @@ const LandingPage = ({ onJoinGame }) => {
   const [nombrePartida, setNombrePartida] = useState('');
   const [games, setGames] = useState([]);
 
-  // Cargar partidas existentes
   useEffect(() => {
     const gamesRef = ref(db, 'games/');
     onValue(gamesRef, (snapshot) => {
@@ -19,7 +18,7 @@ const LandingPage = ({ onJoinGame }) => {
 
   const handleJoinGame = () => {
     if (nombre && nombrePartida) {
-      // Aquí puedes manejar la lógica para unirse a un juego
+      localStorage.setItem('nombreJugador', nombre); // Guardar en localStorage
       onJoinGame(nombre, nombrePartida);
     }
   };
@@ -31,13 +30,14 @@ const LandingPage = ({ onJoinGame }) => {
           [nombre]: { nombre, vida: 40 },
         },
       });
+      localStorage.setItem('nombreJugador', nombre); // Guardar en localStorage
       onJoinGame(nombre, nombrePartida);
     }
   };
 
   return (
     <div>
-      <h1>Magic: The Gathering - Landing Page</h1>
+      <h1>Magic: The Gathering - Contador de Vidas</h1>
       <input
         type="text"
         value={nombre}
@@ -51,18 +51,7 @@ const LandingPage = ({ onJoinGame }) => {
         placeholder="Ingresa el nombre de la partida"
       />
       <button onClick={handleCreateGame}>Crear Partida</button>
-
-      <h2>Unirse a una Partida Existente</h2>
-      <button onClick={handleJoinGame}>Unirse</button>
-
-      <h2>Partidas Existentes</h2>
-      <ul>
-        {games.map((game) => (
-          <li key={game.nombre}>
-            {game.nombre} - {game.jugadores ? Object.keys(game.jugadores).join(', ') : 'No hay jugadores'}
-          </li>
-        ))}
-      </ul>
+      <button onClick={handleJoinGame}>Unirse a Partida</button>
     </div>
   );
 };
