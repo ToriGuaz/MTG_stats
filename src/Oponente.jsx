@@ -51,12 +51,12 @@ const Oponente = ({ oponenteId }) => {
     <div className="contenedorOponente">
       <h1>{nombre}</h1>
       <h2>Vida: {vida}</h2>
-      <div>
+      {/*<div>
         <button className="buttonStyle" onClick={aumentarVida}>+</button>
         <button className="buttonStyle" onClick={disminuirVida}>-</button>
         <button className="buttonStyle" onClick={aumentarVida5}>+5</button>
         <button className="buttonStyle" onClick={disminuirVida5}>-5</button>
-      </div>
+      </div>*/}
     </div>
   );
 };
