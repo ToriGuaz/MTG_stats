@@ -1,24 +1,24 @@
 {
   "files": {
     "main.css": "/mtg_stats/static/css/main.81421529.chunk.css",
-    "main.js": "/mtg_stats/static/js/main.47834e52.chunk.js",
-    "main.js.map": "/mtg_stats/static/js/main.47834e52.chunk.js.map",
-    "runtime-main.js": "/mtg_stats/static/js/runtime-main.3cb218f1.js",
-    "runtime-main.js.map": "/mtg_stats/static/js/runtime-main.3cb218f1.js.map",
-    "static/js/2.3d568ae3.chunk.js": "/mtg_stats/static/js/2.3d568ae3.chunk.js",
-    "static/js/2.3d568ae3.chunk.js.map": "/mtg_stats/static/js/2.3d568ae3.chunk.js.map",
-    "static/js/3.aa90893e.chunk.js": "/mtg_stats/static/js/3.aa90893e.chunk.js",
-    "static/js/3.aa90893e.chunk.js.map": "/mtg_stats/static/js/3.aa90893e.chunk.js.map",
+    "main.js": "/mtg_stats/static/js/main.e33e299a.chunk.js",
+    "main.js.map": "/mtg_stats/static/js/main.e33e299a.chunk.js.map",
+    "runtime-main.js": "/mtg_stats/static/js/runtime-main.50405b9d.js",
+    "runtime-main.js.map": "/mtg_stats/static/js/runtime-main.50405b9d.js.map",
+    "static/js/2.48b22f2f.chunk.js": "/mtg_stats/static/js/2.48b22f2f.chunk.js",
+    "static/js/2.48b22f2f.chunk.js.map": "/mtg_stats/static/js/2.48b22f2f.chunk.js.map",
+    "static/js/3.d65e4560.chunk.js": "/mtg_stats/static/js/3.d65e4560.chunk.js",
+    "static/js/3.d65e4560.chunk.js.map": "/mtg_stats/static/js/3.d65e4560.chunk.js.map",
     "index.html": "/mtg_stats/index.html",
-    "precache-manifest.3a46eafa301223f38fd7f6c1fcbdc577.js": "/mtg_stats/precache-manifest.3a46eafa301223f38fd7f6c1fcbdc577.js",
+    "precache-manifest.fa84a04e2dc6e6898864e3284d50f852.js": "/mtg_stats/precache-manifest.fa84a04e2dc6e6898864e3284d50f852.js",
     "service-worker.js": "/mtg_stats/service-worker.js",
     "static/css/main.81421529.chunk.css.map": "/mtg_stats/static/css/main.81421529.chunk.css.map",
-    "static/js/2.3d568ae3.chunk.js.LICENSE.txt": "/mtg_stats/static/js/2.3d568ae3.chunk.js.LICENSE.txt"
+    "static/js/2.48b22f2f.chunk.js.LICENSE.txt": "/mtg_stats/static/js/2.48b22f2f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.3cb218f1.js",
-    "static/js/2.3d568ae3.chunk.js",
+    "static/js/runtime-main.50405b9d.js",
+    "static/js/2.48b22f2f.chunk.js",
     "static/css/main.81421529.chunk.css",
-    "static/js/main.47834e52.chunk.js"
+    "static/js/main.e33e299a.chunk.js"
   ]
 }
