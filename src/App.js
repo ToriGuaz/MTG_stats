@@ -10,6 +10,8 @@ function App() {
   const [opponents, setOpponents] = useState([]);
   const userID = localStorage.getItem('userID');
 
+
+
   useEffect(() => {
       const gameRef = ref(db, `games/${gameID}/players`);
 
@@ -30,13 +32,21 @@ function App() {
       };
   }, [gameID, userID]);
 
+  
+
   return (
-      <div className="App">
+    <div className="App">
+      {gameID === null ? (
+        <LandingPage />
+      ) : (
+        <>
           <Usuario userID={userID} />
           {opponents.map(opponentID => (
-              <Oponente key={opponentID} opponentID={opponentID} />
+            <Oponente key={opponentID} opponentID={opponentID} />
           ))}
-      </div>
+        </>
+      )}
+    </div>
   );
 }
 
