@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "11ede5b5e53223d152134f1096307244",
+    "revision": "cf4cd8c560194c6da85edeec631c669e",
     "url": "/mtg_stats/index.html"
   },
   {
-    "revision": "e93bf3fdb3f6926c491a",
+    "revision": "2b02fbff4c6eb8eca150",
     "url": "/mtg_stats/static/css/main.5ecd60fb.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mtg_stats/static/js/3.c8a694a2.chunk.js"
   },
   {
-    "revision": "e93bf3fdb3f6926c491a",
-    "url": "/mtg_stats/static/js/main.c526e0da.chunk.js"
+    "revision": "2b02fbff4c6eb8eca150",
+    "url": "/mtg_stats/static/js/main.59f17f62.chunk.js"
   },
   {
     "revision": "5b1bc0dce324d22e16b7",
