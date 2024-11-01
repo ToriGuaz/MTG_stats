@@ -2,6 +2,7 @@
   "homepage": "https://ToriGuaz.github.io/mtg_stats",
   "name": "mtg_stats",
   "version": "0.1.0",
+  "license": "MIT",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
