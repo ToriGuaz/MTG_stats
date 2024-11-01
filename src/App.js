@@ -43,7 +43,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div >
       {gameID ? (
         <>
           <Usuario userID={userID} />
