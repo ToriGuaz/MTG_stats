@@ -1,85 +1,62 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { ref, push, update, onValue } from 'firebase/database';
 import { db } from './firebaseConfig';
-import { ref, set, onValue } from 'firebase/database';
-import DOMPurify from 'dompurify';
 
-const LandingPage = ({ onJoinGame }) => {
-  const [nombre, setNombre] = useState('');
-  const [nombrePartida, setNombrePartida] = useState('');
-  const [games, setGames] = useState([]);
+const LandingPage = ({ setGameID }) => {
+  const [inputGameID, setInputGameID] = useState('');
+  const [playerName, setPlayerName] = useState('');
 
-  useEffect(() => {
-    const gamesRef = ref(db, 'games/');
-    onValue(gamesRef, (snapshot) => {
-      const data = snapshot.val();
-      const gamesList = data ? Object.keys(data).map(key => ({ nombre: key, ...data[key] })) : [];
-      setGames(gamesList);
-    });
-  }, []);
-
-  const handleJoinGame = () => {
-    if (nombre && nombrePartida) {
-      localStorage.setItem('nombreJugador', nombre); // Guardar en localStorage
-      onJoinGame(nombre, nombrePartida);
-    }
+  const handleGameIDChange = (e) => {
+    setInputGameID(e.target.value);
   };
 
-  const handleCreateGame = () => {
-    if (nombre && nombrePartida) {
-      set(ref(db, `games/${nombrePartida}`), {
-        jugadores: {
-          [nombre]: { nombre, vida: 40 },
-        },
+  const handlePlayerNameChange = (e) => {
+    setPlayerName(e.target.value);
+  };
+
+  const onJoinGame = () => {
+    if (!playerName) {
+      alert('Por favor, ingresa un nombre.');
+      return;
+    }
+
+    if (inputGameID) {
+      // Unirse a una partida existente
+      setGameID(inputGameID);
+      localStorage.setItem('userID', playerName);
+    } else {
+      // Crear una nueva partida
+      const newGameRef = push(ref(db, 'games'));
+      const newGameID = newGameRef.key;
+
+      // Inicializa la partida con el jugador actual
+      update(newGameRef, { 
+        players: { 
+          [playerName]: { id: playerName }
+        }
       });
-      localStorage.setItem('nombreJugador', nombre); // Guardar en localStorage
-      onJoinGame(nombre, nombrePartida);
-    }
-  };
 
-  // Función de sanitización y validación
-  const handleNombreChange = (e) => {
-    const value = e.target.value;
-    const isValid = /^[a-zA-Z0-9\s]*$/.test(value); 
-
-    if (isValid && value.length <= 20) {
-      const sanitizedValue = DOMPurify.sanitize(value);
-      setNombre(sanitizedValue);
-    } else if (!isValid) {
-      alert("Caracteres no válidos. Usa solo letras, números y espacios.");
-    }
-  };
-
-  const handleNombrePartidaChange = (e) => {
-    const value = e.target.value;
-    const isValid = /^[a-zA-Z0-9\s]*$/.test(value); 
-
-    if (isValid && value.length <= 20) {
-      const sanitizedValue = DOMPurify.sanitize(value);
-      setNombrePartida(sanitizedValue);
-    } else if (!isValid) {
-      alert("Caracteres no válidos. Usa solo letras, números y espacios.");
+      setGameID(newGameID);
+      localStorage.setItem('userID', playerName);
     }
   };
 
   return (
     <div>
-      <h1>Magic: The Gathering - Contador de Vidas</h1>
+      <h2>Únete a una partida o crea una nueva</h2>
       <input
         type="text"
-        value={nombre}
-        onChange={handleNombreChange} 
-        placeholder="Ingresa tu nombre"
-        maxLength={20} 
+        placeholder="Nombre de jugador"
+        value={playerName}
+        onChange={handlePlayerNameChange}
       />
       <input
         type="text"
-        value={nombrePartida}
-        onChange={handleNombrePartidaChange} 
-        placeholder="Ingresa el nombre de la partida"
-        maxLength={10} 
+        placeholder="ID de partida (opcional)"
+        value={inputGameID}
+        onChange={handleGameIDChange}
       />
-      <button onClick={handleCreateGame}>Crear Partida</button>
-      <button onClick={handleJoinGame}>Unirse a Partida</button>
+      <button onClick={onJoinGame}>Ingresar a la partida</button>
     </div>
   );
 };
