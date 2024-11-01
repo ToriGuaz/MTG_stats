@@ -44,11 +44,20 @@ function App() {
 
   return (
     <div className="App">
-      <Usuario userID={userID} />
-      {opponents.map(opponentID => (
-        <Oponente key={opponentID} opponentID={opponentID} />
-      ))}
-      <button onClick={() => setGameID(null)}>Volver a la landing</button>
+      {gameID ? (
+        <>
+          <Usuario userID={userID} />
+          {opponents.length > 0 ? (
+            opponents.map(opponentID => (
+              <Oponente key={Oponente.id} opponentID={Oponente.id} />
+            ))
+          ) : (
+            <p>Esperando a que se una un oponente...</p>
+          )}
+        </>
+      ) : (
+        <LandingPage onJoinGame={setGameID} />
+      )}
     </div>
   );
 }
