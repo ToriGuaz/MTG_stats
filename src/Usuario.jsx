@@ -3,30 +3,32 @@ import { db } from './firebaseConfig';
 import { ref, set, onValue } from 'firebase/database';
 
 const Usuario = ({ gameId }) => {
-  const nombreJugador = localStorage.getItem('nombreJugador');
-  const [vida, setVida] = useState(40);
+  const playerName = localStorage.getItem('playerName'); //setear el player que corresponde a localtorage
+  const [lifeCount, setlifeCount] = useState(40);
 
   useEffect(() => {
-    const jugadorRef = ref(db, `games/${gameId}/jugadores/${nombreJugador}/vida`);
-    onValue(jugadorRef, (snapshot) => {
-      setVida(snapshot.val() || 40);
+    const playerRef = ref(db, `games/${gameId}/players/${playerName}/lifeCount`);
+    onValue(playerRef, (snapshot) => {
+      setlifeCount(snapshot.val() || 40);
     });
-  }, [gameId, nombreJugador]);
+  }, [gameId, playerName]);
 
-  const actualizarVida = (nuevaVida) => {
-    setVida(nuevaVida);
-    const jugadorRef = ref(db, `games/${gameId}/jugadores/${nombreJugador}/vida`);
-    set(jugadorRef, nuevaVida);
+  const updateLifeCount = (newLifeCount) => {
+    setlifeCount(newLifeCount);
+    const playerRef = ref(db, `games/${gameId}/players/${playerName}/lifeCount`);
+    set(playerRef, newLifeCount);
   };
 
   return (
     <div className="contenedorUsuario">
-      <h1>{nombreJugador}</h1>
-      <h2>Vida: {vida}</h2>
-      <button onClick={() => actualizarVida(vida + 1)}>+1</button>
-      <button onClick={() => actualizarVida(vida - 1)}>-1</button>
-      <button onClick={() => actualizarVida(vida + 5)}>+5</button>
-      <button onClick={() => actualizarVida(vida - 5)}>-5</button>
+      <h1>{playerName}</h1>
+      <h2>lifeCount: {lifeCount}</h2>
+      <div className='buttons'>
+        <button onClick={() => updateLifeCount(lifeCount - 1)}>-1</button>
+        <button onClick={() => updateLifeCount(lifeCount + 1)}>+1</button>
+        <button onClick={() => updateLifeCount(lifeCount - 5)}>-5</button>
+        <button onClick={() => updateLifeCount(lifeCount + 5)}>+5</button>
+      </div>
     </div>
   );
 };

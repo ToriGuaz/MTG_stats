@@ -1,62 +1,69 @@
 import React, { useState } from 'react';
-import { ref, push, update, onValue } from 'firebase/database';
+import { getDatabase, ref, get, child, push, set, } from 'firebase/database';
 import { db } from './firebaseConfig';
 
-const LandingPage = ({ setGameID }) => {
-  const [inputGameID, setInputGameID] = useState('');
-  const [playerName, setPlayerName] = useState('');
+function LandingPage() {
+  const [inputGameName, setGameName] = useState('');
+  const [inputPlayerName, setPlayerName] = useState('');
+  const [games, setGames] = useState([]);
 
-  const handleGameIDChange = (e) => {
-    setInputGameID(e.target.value);
-  };
 
-  const handlePlayerNameChange = (e) => {
-    setPlayerName(e.target.value);
-  };
+  const createGame  = async () => {
+    const newGameRef = push(ref(db, 'games'));
+    set(newGameRef, { 
+      gameName: inputGameName,
+      players: [
+        {PlayerName: inputPlayerName,
+          life: 40,
+          counter: 0
+        }]
+    }).then(() => {
+      alert("data saved")}).catch((error) => {
+        alert("Error: " + error.message);
+      })
+  }
 
-  const onJoinGame = () => {
-    if (!playerName) {
-      alert('Por favor, ingresa un nombre.');
-      return;
-    }
-
-    if (inputGameID) {
-      // Unirse a una partida existente
-      setGameID(inputGameID);
-      localStorage.setItem('userID', playerName);
+  const dbRef = ref(getDatabase());
+    get(child(dbRef, `games`)).then((snapshot) => {
+    if (snapshot.exists()) {
+       setGames(Object.values(snapshot.val()));
+      //console.log("Data retrieved successfully:", snapshot.val());
     } else {
-      // Crear una nueva partida
-      const newGameRef = push(ref(db, 'games'));
-      const newGameID = newGameRef.key;
-
-      // Inicializa la partida con el jugador actual
-      update(newGameRef, { 
-        players: { 
-          [playerName]: { id: playerName }
-        }
-      });
-
-      setGameID(newGameID);
-      localStorage.setItem('userID', playerName);
+      console.log("No data available");
     }
-  };
+  }).catch((error) => {
+    console.error(error);
+  });
+  console.log(games);
+  
 
   return (
     <div>
-      <h2>Únete a una partida o crea una nueva</h2>
+      <p>Únete a una partida o crea una nueva</p>
       <input
         type="text"
         placeholder="Nombre de jugador"
-        value={playerName}
-        onChange={handlePlayerNameChange}
+        value={inputPlayerName}
+        onChange={(e) => setPlayerName(e.target.value)}
       />
+      <form>
+        <label>unirse a partida</label>
+          <select name="partidas">
+            {games.map((item, index) => (
+              <option key={index}>
+                {item.GameName}
+              </option>
+            ))}
+            </select>
+      </form>
       <input
+        //crear partida nueva
         type="text"
-        placeholder="ID de partida (opcional)"
-        value={inputGameID}
-        onChange={handleGameIDChange}
+        placeholder="crear partida"
+        value={inputGameName}
+        onChange={(e) => setGameName(e.target.value)}
       />
-      <button onClick={onJoinGame}>Ingresar a la partida</button>
+      <button onClick={createGame}>Crear partida</button>
     </div>
   );
 };

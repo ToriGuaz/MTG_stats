@@ -1,6 +1,6 @@
 MTG STATS
 MTG Stats
-MTG Stats es una aplicación en línea para gestionar y llevar el control de las estadísticas de vida y otras métricas de jugadores en el juego de cartas Magic: The Gathering. Los usuarios pueden ver y ajustar los valores de vida de los jugadores, tanto del usuario como de los oponentes, en tiempo real, sin necesidad de instalar nada.
+MTG Stats es una aplicación en línea para gestionar y llevar el control de las estadísticas de lifeCount y otras métricas de players en el juego de cartas Magic: The Gathering. Los usuarios pueden ver y ajustar los valores de lifeCount de los players, tanto del usuario como de los oponentes, en tiempo real, sin necesidad de instalar nada.
 
 Tabla de Contenidos
 Características
@@ -12,8 +12,8 @@ Contribución
 Licencia
 Características
 Landing Page: Una página de bienvenida que guía al usuario antes de iniciar el seguimiento de las estadísticas.
-Componentes interactivos: Cada jugador tiene su propio componente (Usuario y Oponente) donde se pueden ajustar los puntos de vida.
-Sincronización en tiempo real: Las estadísticas se actualizan en tiempo real usando Firebase, para una experiencia fluida entre jugadores.
+Componentes interactivos: Cada jugador tiene su propio componente (Usuario y Oponente) donde se pueden ajustar los puntos de lifeCount.
+Sincronización en tiempo real: Las estadísticas se actualizan en tiempo real usando Firebase, para una experiencia fluida entre players.
 Enrutamiento: Navegación fluida entre las páginas de la aplicación mediante react-router-dom.
 Acceso
 La aplicación está publicada y disponible en línea. Puedes acceder a ella en el siguiente enlace:
@@ -25,7 +25,7 @@ Reemplaza URL_DE_LA_APP con el enlace a tu aplicación.
 Uso
 Accede a la página de bienvenida (Landing Page) para comenzar.
 Selecciona o ingresa en una partida.
-Utiliza los botones para ajustar los puntos de vida de cada jugador en tiempo real.
+Utiliza los botones para ajustar los puntos de lifeCount de cada jugador en tiempo real.
 Visualiza las estadísticas en tiempo real, tanto las propias como las de los oponentes.
 Estructura del Proyecto
 plaintext
