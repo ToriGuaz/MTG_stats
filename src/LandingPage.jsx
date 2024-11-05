@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import { getDatabase, ref, get, child, push, set, } from 'firebase/database';
+import React, { useState, useEffect } from 'react';
+import { getDatabase, ref, get, child, push, set, onValue } from 'firebase/database';
 import { db } from './firebaseConfig';
+import GameForm from './GameForm';
 
-function LandingPage() {
+function LandingPage({ onGameSelect }) {
   const [inputGameName, setGameName] = useState('');
   const [inputPlayerName, setPlayerName] = useState('');
   const [games, setGames] = useState([]);
@@ -10,6 +11,7 @@ function LandingPage() {
 
   const createGame  = async () => {
     const newGameRef = push(ref(db, 'games'));
+    const gameId = newGameRef.key;
     set(newGameRef, { 
       gameName: inputGameName,
       players: [
@@ -21,20 +23,7 @@ function LandingPage() {
       alert("data saved")}).catch((error) => {
         alert("Error: " + error.message);
       })
-  }
-
-  const dbRef = ref(getDatabase());
-    get(child(dbRef, `games`)).then((snapshot) => {
-    if (snapshot.exists()) {
-       setGames(Object.values(snapshot.val()));
-      //console.log("Data retrieved successfully:", snapshot.val());
-    } else {
-      console.log("No data available");
-    }
-  }).catch((error) => {
-    console.error(error);
-  });
-  console.log(games);
+  }    
   
 
   return (
@@ -46,16 +35,7 @@ function LandingPage() {
         value={inputPlayerName}
         onChange={(e) => setPlayerName(e.target.value)}
       />
-      <form>
-        <label>unirse a partida</label>
-          <select name="partidas">
-            {games.map((item, index) => (
-              <option key={index}>
-                {item.GameName}
-              </option>
-            ))}
-            </select>
-      </form>
+      <GameForm onGameSelect={onGameSelect} />
       <input
         //crear partida nueva
         type="text"
