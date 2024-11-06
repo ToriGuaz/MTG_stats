@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getDatabase, ref, get, child, push, set, onValue } from 'firebase/database';
-import { db } from './firebaseConfig';
+import { db } from '../firebaseConfig';
 import GameForm from './GameForm';
 
 function LandingPage({ onGameSelect }) {

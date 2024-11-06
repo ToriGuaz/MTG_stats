@@ -3,8 +3,8 @@ import { ref, get, getDatabase, child } from 'firebase/database';
 //import { db } from './firebaseConfig';
 //import Usuario from './Usuario';
 //import Oponente from './Oponente';
-import LandingPage from './LandingPage';
-import GameForm from './GameForm';
+import LandingPage from './Componets/LandingPage';
+import GameForm from './Components/GameForm';
 
 function App() {
   const [gameName, setGameName] = useState(null);

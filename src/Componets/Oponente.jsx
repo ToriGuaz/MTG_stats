@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ref, onValue } from 'firebase/database';
-import { db } from './firebaseConfig';
+import { db } from '../firebaseConfig';
 
 const Oponente = ({ oponentName }) => {
     const [lifeCount, setlifeCount] = useState(40);

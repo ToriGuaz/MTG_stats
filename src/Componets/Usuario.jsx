@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { db } from './firebaseConfig';
+import { db } from '../firebaseConfig';
 import { ref, set, onValue } from 'firebase/database';
 
 const Usuario = ({ gameId }) => {
