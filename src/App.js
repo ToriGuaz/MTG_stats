@@ -4,7 +4,7 @@ import { ref, get, getDatabase, child } from 'firebase/database';
 //import Usuario from './Usuario';
 //import Oponente from './Oponente';
 import LandingPage from './Componets/LandingPage';
-import GameForm from './Components/GameForm';
+import GameForm from './Componets/GameForm';
 
 function App() {
   const [gameName, setGameName] = useState(null);
