@@ -6,7 +6,6 @@ function GameForm( { onGameSelect } ) {
   const [games, setGames] = useState([]);
  // const [currentGame, setGameID] = useState([]);
 
-
   useEffect(() => {
     const gamesRef = ref(db, 'games');
     
@@ -25,17 +24,14 @@ function GameForm( { onGameSelect } ) {
   const handleGameSelection = (event) => {
     const selectedGameId = event.target.value;
     console.log("Juego seleccionado con ID:", selectedGameId);
-    // Aquí puedes manejar la lógica para el juego seleccionado
     onGameSelect(selectedGameId);
   };
 
   return (
     <div>
-      <h1>Seleccionar Juego</h1>
       <form>
-        <label htmlFor="gameSelect">Elige un juego:</label>
+        <label htmlFor="gameSelect">Elige un juego ya creado:</label>
         <select id="gameSelect" onChange={handleGameSelection}>
-          <option value="">-- Selecciona un juego --</option>
           {games.map((game) => (
             <option key={game.id} value={game.id}>
               {game.gameName} 
