@@ -4,6 +4,7 @@ import { ref, get, getDatabase, child } from 'firebase/database';
 //import Usuario from './Usuario';
 //import Oponente from './Oponente';
 import LandingPage from './Componets/LandingPage';
+import PrincipalPlayer from './Componets/PrincipalPlayer';
 //import GameForm from './Componets/GameForm';
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
     <div>
       <LandingPage onGameSelect={handleSetGameID} />
       <h2>Partida: {gameName}</h2>
+      <PrincipalPlayer/>
       <ul>
         {players.map((item, index) => (
           <li key={index}>

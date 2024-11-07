@@ -3,7 +3,7 @@ import { db } from '../firebaseConfig';
 import { ref, set, onValue } from 'firebase/database';
 
 const Usuario = ({ gameId }) => {
-  const playerName = localStorage.getItem('playerName'); //setear el player que corresponde a localtorage
+  const playerName = localStorage.getItem('playerName'); 
   const [lifeCount, setlifeCount] = useState(40);
 
   useEffect(() => {

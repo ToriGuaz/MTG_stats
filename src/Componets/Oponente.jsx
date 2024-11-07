@@ -10,14 +10,13 @@ const Oponente = ({ oponentName }) => {
 
         const lifeCountRef = ref(db, `players/${oponentName}/lifeCount`);
         const unsubscribe = onValue(lifeCountRef, (snapshot) => {
-            setlifeCount(snapshot.val() || 40); // Mantiene el valor inicial si no hay datos en la DB
+            setlifeCount(snapshot.val() || 40); 
         });
 
-        // Cleanup listener al desmontar
         return () => unsubscribe();
     }, [oponentName]);
 
-    if (!oponentName) return null; // Evita renderizar si no hay oponentName válido
+    if (!oponentName) return null; 
 
     return (
         <div className="oponente">

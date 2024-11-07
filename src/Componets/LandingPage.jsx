@@ -50,7 +50,7 @@ function LandingPage({ onGameSelect }) {
       })
       .then(() => {
         alert("Partida creada");
-        onGameSelect(newGameID); // Selecciona el ID del juego creado
+        onGameSelect(newGameID); 
       })
       .catch((error) => {
         alert("Error: " + error.message);
