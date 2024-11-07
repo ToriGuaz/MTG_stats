@@ -4,12 +4,12 @@ import { ref, get, getDatabase, child } from 'firebase/database';
 //import Usuario from './Usuario';
 //import Oponente from './Oponente';
 import LandingPage from './Componets/LandingPage';
-import GameForm from './Componets/GameForm';
+//import GameForm from './Componets/GameForm';
 
 function App() {
-  const [gameName, setGameName] = useState(null);
-  const [gameID, setGameID] = useState([]);
-  let [players, setPlayers] = useState([]);
+  const [gameName, setGameName] = useState('');
+  const [gameID, setGameID] = useState('');
+  const [players, setPlayers] = useState([]);
 
   const handleSetGameID = (id) => {
     setGameID(id);
@@ -18,10 +18,20 @@ function App() {
   useEffect(() => {
     if (gameID) {
       const dbRef = ref(getDatabase());
-      get(child(dbRef, `games/${gameID}/players`))
+
+
+      get(child(dbRef, `games/${gameID}`))
         .then((snapshot) => {
           if (snapshot.exists()) {
-            setPlayers(Object.values(snapshot.val()));
+            const data = snapshot.val();
+            setGameName(data.gameName); // Establece el nombre del juego
+            
+            // Verificar si `players` existe en los datos antes de usar `Object.values`
+            if (data.players) {
+              setPlayers(Object.values(data.players)); // Establece los jugadores
+            } else {
+              setPlayers([]); // Si no hay jugadores, establece un array vacío
+            }
           } else {
             console.log("No data available");
           }
@@ -32,14 +42,14 @@ function App() {
     }
   }, [gameID]);
 
-
   return (
-    <div >
+    <div>
       <LandingPage onGameSelect={handleSetGameID} />
+      <h2>Partida: {gameName}</h2>
       <ul>
         {players.map((item, index) => (
           <li key={index}>
-            {item.PlayerName}: {item.life} 
+            {item.playerName}: {item.life}
           </li>
         ))}
       </ul>
