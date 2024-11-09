@@ -11,7 +11,7 @@ function App() {
   const [gameName, setGameName] = useState('');
   const [gameID, setGameID] = useState('');
   const [players, setPlayers] = useState([]);
-
+  
   const handleSetGameID = (id) => {
     setGameID(id);
   };
@@ -47,11 +47,11 @@ function App() {
     <div>
       <LandingPage onGameSelect={handleSetGameID} />
       <h2>Partida: {gameName}</h2>
-      <PrincipalPlayer/>
+      <PrincipalPlayer gameID={gameID} />
       <ul>
-        {players.map((item, index) => (
+        {players.map((item, index) => (//ver de hacer esto de forma que se actualice con los cambios.
           <li key={index}>
-            {item.playerName}: {item.life}
+            {item.playerName}: {item.life} : {item.counter}
           </li>
         ))}
       </ul>

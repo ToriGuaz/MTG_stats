@@ -73,3 +73,9 @@ Seguridad:
 instale dompurify para proteger la seguridad de la informacion que se ingresa
 edite los imputs para que regulen los simbolos que si se pueden poner y el largo del imput
 
+09/11/2024: _esperar a las 05 am y ver arcane 2.
+_sin tele y sin cerbeza Homero pierde la cabeza.
+_ahora si, proximos pasos: 
+    -al seleccionar Game, introducir al player a dicho game si no estaba.
+    -actualizar map en el return de app.js que no se muestran automaticamente las modificaciones en los valores de players.
+    
