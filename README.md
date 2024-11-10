@@ -84,5 +84,9 @@ _ahora si, proximos pasos:
 
 10/11: 
 priorizamos correxion de errores
--proxima tarea es sumarse a una partida existente
+-proxima tarea es sumarse a una partida existente - DONE
+--QUE SI CAMBIAS DE PARTIDA TE SAQUE 
+
+
+
     

@@ -42,7 +42,6 @@ function LandingPage({ onGameSelect }) {
                 console.error("Error al añadir jugador:", error);
             });
         } else {
-            alert("Ya estás en esta partida");
             onGameSelect(gameID);
         }
     });

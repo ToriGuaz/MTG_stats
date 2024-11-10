@@ -1,0 +1,25 @@
+.landingPage {
+    position: absolute;
+    right: 5px;
+    top: 5px
+}
+
+div {
+    border-width: 1px;
+    border-color: solid black;
+}
+
+button {
+    background-color: #85a0e9; 
+    color: #1a1a1a; 
+    border: none; 
+    border-radius: 5px; 
+    padding: 10px 15px; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; 
+    font-size: 16px; 
+    margin: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s, transform 0.2s; 
+}
