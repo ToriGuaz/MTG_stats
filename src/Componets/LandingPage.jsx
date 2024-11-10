@@ -43,6 +43,7 @@ function LandingPage({ onGameSelect }) {
             });
         } else {
             alert("Ya estás en esta partida");
+            onGameSelect(gameID);
         }
     });
   };
@@ -89,7 +90,7 @@ function LandingPage({ onGameSelect }) {
         value={inputPlayerName}
         onChange={(e) => setPlayerName(e.target.value)}
       />
-      <GameForm onGameSelect={onGameSelect} handleGameSelect={handleGameSelect} />
+      <GameForm onGameSelect={handleGameSelect} />
       <input
         type="text"
         placeholder="Crear partida"

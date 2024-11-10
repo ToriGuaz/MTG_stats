@@ -15,7 +15,6 @@ const Opponent = ({ opponentID , gameID }) => {
             return; 
         }
 
-
         const lifeCountRef = ref(db, `games/${gameID}/players/${opponentID}`);
 
         onValue(lifeCountRef, (snapshot) => {
