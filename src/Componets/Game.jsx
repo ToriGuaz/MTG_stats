@@ -22,7 +22,6 @@ function Game( {gameID} ) {
                 
                 if (data.players) {
                   setPlayers(Object.keys(data.players)); // Establece los jugadores
-                  console.log("lista de jugadores dentro de useEffect :" , players);
 
                 } else {
                   setPlayers([]); // Si no hay jugadores, establece un array vacío
@@ -37,8 +36,6 @@ function Game( {gameID} ) {
             });
         }
       }, [gameID]);
-
-      console.log("lista de jugadores fuera de useEffect :" , players);
 
   return (
     <div>

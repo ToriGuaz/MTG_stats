@@ -28,7 +28,7 @@ const PrincipalPlayer = ({gameID}) => {
         setLife(data.life || 40);
         setCounter(data.counter || 0);
       } else {
-        console.log('no tenes nombre, GIL');
+        alert('no tenes nombre, GIL');
       }
     });
   }, [playerRef]);

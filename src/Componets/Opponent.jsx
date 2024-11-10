@@ -19,7 +19,6 @@ const Opponent = ({ opponentID , gameID }) => {
 
         onValue(lifeCountRef, (snapshot) => {
             const data = snapshot.val();
-            console.log("data dentro del onvalue: ", data)
             if (data) {
                 setOpponentName(data.playerName || 'SIN OPONENTES');
                 setlifeCount(data.life || 40);
@@ -27,8 +26,6 @@ const Opponent = ({ opponentID , gameID }) => {
               } else {
                 console.log('no tenes nombre, GIL');
               }
-
-              console.log("data despues de la asignacion: ", data)
  
         });
 
