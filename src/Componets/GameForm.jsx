@@ -31,7 +31,7 @@ function GameForm( { onGameSelect } ) {
   return (
     <div>
       <form>
-        <label htmlFor="gameSelect">Elige un juego ya creado:</label>
+        <label htmlFor="gameSelect">Elige un juego ya creado: </label>
         <select id="gameSelect" onChange={handleGameSelection}>
           {games.map((game) => (
             <option key={game.id} value={game.id}>

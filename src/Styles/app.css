@@ -1,12 +1,14 @@
-.landingPage {
-    position: absolute;
-    right: 5px;
-    top: 5px
-}
 
-div {
-    border-width: 1px;
-    border-color: solid black;
+.header {    
+    background-color: #b2fab4;
+    padding: 20px;
+    width: 100%; 
+    text-align: center;
+    border-bottom: 2px solid black; /* Borde negro */
+    box-sizing: border-box;
+    display: flex; /* Utiliza Flexbox */
+    justify-content: space-between; /* Espacio entre los elementos */
+    align-items: center;
 }
 
 button {
