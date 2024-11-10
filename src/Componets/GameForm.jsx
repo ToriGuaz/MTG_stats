@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ref, onValue } from 'firebase/database';
 import { db } from '../firebaseConfig'; 
 
+
 function GameForm( { onGameSelect } ) {
   const [games, setGames] = useState([]);
  // const [currentGame, setGameID] = useState([]);
@@ -23,8 +24,8 @@ function GameForm( { onGameSelect } ) {
 
   const handleGameSelection = (event) => {
     const selectedGameId = event.target.value;
-    console.log("Juego seleccionado con ID:", selectedGameId);
-    onGameSelect(selectedGameId);
+    const playerID = localStorage.getItem('playerID'); 
+    onGameSelect(selectedGameId, playerID);
   };
 
   return (

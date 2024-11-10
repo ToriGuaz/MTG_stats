@@ -25,6 +25,28 @@ function LandingPage({ onGameSelect }) {
     });
   }, []);
 
+  const handleGameSelect = (gameID, playerID) => {
+    const gameRef = ref(db, `games/${gameID}/players/${playerID}`);
+
+    onValue(gameRef, (snapshot) => {
+        if (!snapshot.exists()) {
+            set(gameRef, {
+                playerName: inputPlayerName,
+                life: 40,
+                counter: 0,
+            })
+            .then(() => {
+                alert("Jugador añadido a la partida existente");
+            })
+            .catch((error) => {
+                console.error("Error al añadir jugador:", error);
+            });
+        } else {
+            alert("Ya estás en esta partida");
+        }
+    });
+  };
+
   const createGame = async () => {
     const namesArray = gameArray.current.map(game => game.gameName);
 
@@ -67,7 +89,7 @@ function LandingPage({ onGameSelect }) {
         value={inputPlayerName}
         onChange={(e) => setPlayerName(e.target.value)}
       />
-      <GameForm onGameSelect={onGameSelect} />
+      <GameForm onGameSelect={onGameSelect} handleGameSelect={handleGameSelect} />
       <input
         type="text"
         placeholder="Crear partida"
