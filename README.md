@@ -66,6 +66,8 @@ para deployar, una vez pushado escribir comando:
 npm run build
 npm run deploy
 
+para crear un componente con snnipets:  rfce
+
 si lo queres ver en tu pc antes de deployarlo solo escribir:
 npm start
 
@@ -78,4 +80,9 @@ _sin tele y sin cerbeza Homero pierde la cabeza.
 _ahora si, proximos pasos: 
     -al seleccionar Game, introducir al player a dicho game si no estaba.
     -actualizar map en el return de app.js que no se muestran automaticamente las modificaciones en los valores de players.
+
+
+10/11: 
+priorizamos correxion de errores
+-proxima tarea es sumarse a una partida existente
     
