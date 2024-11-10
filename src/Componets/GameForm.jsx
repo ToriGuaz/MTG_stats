@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ref, onValue } from 'firebase/database';
+import { ref, onValue, push } from 'firebase/database';
 import { db } from '../firebaseConfig'; 
 
 
@@ -18,13 +18,15 @@ function GameForm( { onGameSelect } ) {
           gameName: data[id].gameName,
         }));
         setGames(gameArray);
+        
       }
     });
   }, []);
 
   const handleGameSelection = (event) => {
     const selectedGameId = event.target.value;
-    const playerID = localStorage.getItem('playerID'); 
+    const playerID = localStorage.getItem('playerID') || push(ref(db, 'games')).key; 
+    
     onGameSelect(selectedGameId, playerID);
   };
 
