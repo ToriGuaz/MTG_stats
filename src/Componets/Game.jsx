@@ -41,11 +41,11 @@ function Game( {gameID} ) {
     <div>
         <h2>Partida: {gameName}</h2>
         <PrincipalPlayer gameID={gameID} />
-        <ul>
+        <ul className="listaDeOponentes">
             {players.map((playerID) => {
             //console.log("Rendering Opponent with:", item);
             return (
-                <li key={playerID}>
+                <li  key={playerID}>
                 <Opponent opponentID={playerID} gameID={gameID} />
                 </li>
             );

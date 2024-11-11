@@ -31,9 +31,6 @@ const Opponent = ({ opponentID , gameID }) => {
 
     }, [opponentID, gameID]);
 
-
-
-
     return (
         <div className="oponente">
             <h2>{opponentName}</h2>

@@ -34,17 +34,19 @@ const PrincipalPlayer = ({gameID}) => {
   }, [playerRef]);
 
   return (
-    <div>
-      <h2>{playerName}</h2> 
-      <p>Vida: {life}</p>
-      <p>Counter: {counter}</p>
+    <div className='principalPlayer'>
+      <div className='infoPP'>
+        <h2>{playerName}</h2> 
+        <p>Vida: {life}</p>
+        <p>Counter: {counter}</p>
+      </div>
       <ul className="lifeButtons">
         <li><button onClick={() => changeLife(life + 1)}>+1</button></li>
         <li><button onClick={() => changeLife(life - 1)}>-1</button></li>
         <li><button onClick={() => changeLife(life + 5)}>+5</button></li>
         <li><button onClick={() => changeLife(life - 5)}>-5</button></li>
+        <li><button className="counterButton" onClick={() => incrementCounter( counter + 1)}>Counter</button></li>
       </ul>
-      <button className="counterButton" onClick={() => incrementCounter( counter + 1)}>Counter</button>
     </div>
   );
 };

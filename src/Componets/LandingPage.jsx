@@ -8,7 +8,7 @@ function LandingPage({ onGameSelect }) {
   const [games, setGames] = useState([]);
   const gameArray = useRef([]);
 
-  // Fetch games data on component mount
+
   useEffect(() => {
     const gamesRef = ref(db, 'games');
 
@@ -86,12 +86,11 @@ function LandingPage({ onGameSelect }) {
     
   };
 
-  // Render component
+
   return (
     <div className="header">
       <p>Únete a una partida o crea una nueva</p>
 
-      {/* Input for Player Name */}
       <input
         type="text"
         placeholder="Nombre de jugador"
@@ -99,7 +98,7 @@ function LandingPage({ onGameSelect }) {
         onChange={(e) => setPlayerName(e.target.value)}
       />
 
-      {/* Dropdown for selecting existing game */}
+
       <div>
         <label htmlFor="gameSelect">Elige un juego ya creado: </label>
         <select id="gameSelect" onChange={(e) => handleGameSelect(e.target.value)}>
@@ -112,7 +111,7 @@ function LandingPage({ onGameSelect }) {
         </select>
       </div>
 
-      {/* Input and button for creating a new game */}
+
       <input
         type="text"
         placeholder="Crear partida"

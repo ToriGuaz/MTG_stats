@@ -4,10 +4,11 @@
     padding: 20px;
     width: 100%; 
     text-align: center;
-    border-bottom: 2px solid black; /* Borde negro */
+    border-bottom: 2px solid black;
     box-sizing: border-box;
-    display: flex; /* Utiliza Flexbox */
-    justify-content: space-between; /* Espacio entre los elementos */
+    display: flex; 
+    justify-content: space-between; 
+    border-width: 1px;
     align-items: center;
 }
 
@@ -24,4 +25,24 @@ button {
     margin: 5px; 
     cursor: pointer; 
     transition: background-color 0.3s, transform 0.2s; 
+}
+
+.principalPlayer {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+} 
+
+.oponente {
+    border-width: 1px;
+    border-bottom: 2px solid black;
+    justify-content: space-between; 
+}
+
+.listaDeOponentes {
+    display: flex;
+    flex-wrap: wrap;  
+    justify-content: space-around;
+    gap: 20px;  
+    margin-bottom: 20px;
 }
