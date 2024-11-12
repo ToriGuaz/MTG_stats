@@ -28,7 +28,7 @@ const PrincipalPlayer = ({gameID}) => {
         setLife(data.life || 40);
         setCounter(data.counter || 0);
       } else {
-        alert('no tenes nombre, GIL');
+        console.log('no tenes nombre, GIL');
       }
     });
   }, [playerRef]);
@@ -40,7 +40,7 @@ const PrincipalPlayer = ({gameID}) => {
         <p>Vida: {life}</p>
         <p>Counter: {counter}</p>
       </div>
-      <ul className="lifeButtons">
+      <ul className="lifeButtons" >
         <li><button onClick={() => changeLife(life + 1)}>+1</button></li>
         <li><button onClick={() => changeLife(life - 1)}>-1</button></li>
         <li><button onClick={() => changeLife(life + 5)}>+5</button></li>

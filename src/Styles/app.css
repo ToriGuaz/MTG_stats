@@ -27,6 +27,11 @@ button {
     transition: background-color 0.3s, transform 0.2s; 
 }
 
+.lifeButtons {
+    list-style-type: none;
+}
+
+
 .principalPlayer {
     display: flex;
     flex-wrap: wrap; 
@@ -35,8 +40,10 @@ button {
 
 .oponente {
     border-width: 1px;
-    border-bottom: 2px solid black;
+    border: 2px solid black;
     justify-content: space-between; 
+    background-color: bisque;
+    padding: 10px;
 }
 
 .listaDeOponentes {
@@ -45,4 +52,9 @@ button {
     justify-content: space-around;
     gap: 20px;  
     margin-bottom: 20px;
+    list-style-type: none;
+}
+
+.game {
+    padding: 5%;
 }

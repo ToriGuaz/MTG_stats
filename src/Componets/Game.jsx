@@ -38,8 +38,8 @@ function Game( {gameID} ) {
       }, [gameID]);
 
   return (
-    <div>
-        <h2>Partida: {gameName}</h2>
+    <div className='game'>
+        <h2> Partida: {gameName}</h2>
         <PrincipalPlayer gameID={gameID} />
         <ul className="listaDeOponentes">
             {players.map((playerID) => {
