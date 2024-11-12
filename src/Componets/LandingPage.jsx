@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ref, push, set, onValue, update } from 'firebase/database';
+import { ref, push, set, onValue, remove } from 'firebase/database';
 import { db } from '../firebaseConfig';
 
 function LandingPage({ onGameSelect }) {
@@ -10,11 +10,6 @@ function LandingPage({ onGameSelect }) {
 
   useEffect(() => {
     const gamesRef = ref(db, 'games');
-    const storedPlayerName = localStorage.getItem('playerName');
-    
-    if (storedPlayerName) {
-      setPlayerName(storedPlayerName); // Autocompleta el nombre del jugador si existe en localStorage
-    }
 
     onValue(gamesRef, (snapshot) => {
       const data = snapshot.val();
@@ -27,69 +22,92 @@ function LandingPage({ onGameSelect }) {
         setGames(gameList);
       }
     });
+    
+    // Autocompletar nombre de jugador desde localStorage si existe
+    const savedPlayerName = localStorage.getItem('playerName');
+    if (savedPlayerName) setPlayerName(savedPlayerName);
+    
   }, []);
+
+  // Función para eliminar al jugador del juego anterior
+  const removePlayerFromPreviousGame = () => {
+    const previousGameID = localStorage.getItem('gameID');
+    const playerID = localStorage.getItem('playerID');
+    
+    if (previousGameID && playerID) {
+      const playerRef = ref(db, `games/${previousGameID}/players/${playerID}`);
+      remove(playerRef)
+        .then(() => console.log("Jugador eliminado de la partida anterior"))
+        .catch((error) => console.error("Error al eliminar jugador:", error));
+    }
+  };
 
   const handleGameSelect = (gameID) => {
     if (!inputPlayerName) {
-      alert("Por favor, ingresa un nombre de jugador antes de unirte a una partida.");
-      return;
+      return alert("Error: Por favor ingresa un nombre de jugador.");
     }
+    // Elimina al jugador de la partida anterior antes de unirse a una nueva
+    removePlayerFromPreviousGame();
 
     const playerID = localStorage.getItem('playerID') || push(ref(db, 'games')).key;
     localStorage.setItem('playerID', playerID);
-    localStorage.setItem('playerName', inputPlayerName); // Guarda el nombre actualizado en localStorage
+    localStorage.setItem('playerName', inputPlayerName);
+    localStorage.setItem('gameID', gameID);
 
     const gameRef = ref(db, `games/${gameID}/players/${playerID}`);
 
-    onValue(gameRef, (snapshot) => {
-      if (!snapshot.exists()) {
-        set(gameRef, {
-          playerName: inputPlayerName,
-          life: 40,
-          counter: 0,
-        })
-        .then(() => alert("Jugador añadido a la partida existente"))
-        .catch((error) => console.error("Error al añadir jugador:", error));
-      }
+    set(gameRef, {
+      playerName: inputPlayerName,
+      life: 40,
+      counter: 0,
+    })
+    .then(() => {
+      alert("Jugador añadido a la partida existente");
       onGameSelect(gameID);
+    })
+    .catch((error) => {
+      console.error("Error al añadir jugador:", error);
     });
   };
 
   const createGame = () => {
     if (!inputPlayerName) {
-      alert("Por favor, ingresa un nombre de jugador antes de crear una partida.");
-      return;
+      return alert("Error: Por favor ingresa un nombre de jugador.");
     }
-
     const namesArray = gameArray.current.map(game => game.gameName);
+
     if (namesArray.includes(inputGameName)) {
-      alert("Error: partida ya existente MAMERTO");
-      return;
-    }
+      return alert("Error: partida ya existente");
+    } else {
+      // Elimina al jugador de la partida anterior antes de crear una nueva
+      removePlayerFromPreviousGame();
 
-    const playerID = localStorage.getItem('playerID') || push(ref(db, 'games')).key;
-    localStorage.setItem('playerID', playerID);
-    localStorage.setItem('playerName', inputPlayerName); // Guarda el nombre actualizado en localStorage
+      const playerID = localStorage.getItem('playerID') || push(ref(db, 'games')).key;
+      localStorage.setItem('playerID', playerID);
+      localStorage.setItem('playerName', inputPlayerName);
 
-    const newGameRef = push(ref(db, 'games'));
-    const newGameID = newGameRef.key;
-
-    set(newGameRef, {
-      gameName: inputGameName,
-      players: {
-        [playerID]: {
-          playerName: inputPlayerName,
-          life: 40,
-          counter: 0,
-        },
-      },
-    })
-    .then(() => {
-      alert("Partida creada");
-      onGameSelect(newGameID);
+      const newGameRef = push(ref(db, 'games'));
+      const newGameID = newGameRef.key;
       localStorage.setItem('gameID', newGameID);
-    })
-    .catch((error) => alert("Error: " + error.message));
+
+      set(newGameRef, {
+        gameName: inputGameName,
+        players: {
+          [playerID]: {
+            playerName: inputPlayerName,
+            life: 40,
+            counter: 0,
+          },
+        },
+      })
+      .then(() => {
+        alert("Partida creada");
+        onGameSelect(newGameID);
+      })
+      .catch((error) => {
+        alert("Error: " + error.message);
+      });
+    }
   };
 
   return (
