@@ -86,8 +86,9 @@ _ahora si, proximos pasos:
 priorizamos correxion de errores
 -proxima tarea es sumarse a una partida existente - DONE
 --QUE SI CAMBIAS DE PARTIDA TE SAQUE (ya hicimos el comando de agregar el id de game en localstorage)
---que si queda negativo muestre el negativo y no vuelva a 40
--que si no pongo player, traiga el que esta vinculado al id de localstorage
+--que si queda negativo muestre el negativo y no vuelva a 40 
+-que si no pongo player, traiga el que esta vinculado al id de localstorage - DONE
+-que no aparezca principal player en la lista de oponentes - 
 
 
     
