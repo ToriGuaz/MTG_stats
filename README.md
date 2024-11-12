@@ -89,6 +89,8 @@ priorizamos correxion de errores
 --que si queda negativo muestre el negativo y no vuelva a 40 
 -que si no pongo player, traiga el que esta vinculado al id de localstorage - DONE
 -que no aparezca principal player en la lista de oponentes - 
+-chequeos de seguridad - 
+-estilos
 
 
     
