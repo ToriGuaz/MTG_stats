@@ -20,7 +20,7 @@ const Opponent = ({ opponentID , gameID }) => {
         onValue(lifeCountRef, (snapshot) => {
             const data = snapshot.val();
             if (data) {
-                setOpponentName(data.playerName || 'SIN OPONENTES');
+                setOpponentName(data.playerName || 'jugador no puso nombre');
                 setlifeCount(data.life || 40);
                 setCounter(data.counter || 0);
               } else {

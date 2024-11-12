@@ -24,11 +24,13 @@ const PrincipalPlayer = ({gameID}) => {
     onValue(playerRef, (snapshot) => {
       const data = snapshot.val();
       if (data) {
-        setPlayerName(data.playerName || '');
-        setLife(data.life || 40);
-        setCounter(data.counter || 0);
-      } else {
-        console.log('no tenes nombre, GIL');
+        if(data.playerName !== '') {
+          setPlayerName(data.playerName);
+          setLife(data.life || 40);
+          setCounter(data.counter || 0);
+        } else {
+          alert("No te podes sumar sin nombre")
+        }
       }
     });
   }, [playerRef]);
