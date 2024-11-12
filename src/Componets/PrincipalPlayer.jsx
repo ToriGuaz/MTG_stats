@@ -7,9 +7,9 @@ const PrincipalPlayer = ({gameID}) => {
   //paso futuro, no asumir que ya esta en local storage el id.
   const playerRef = ref(db, `games/${gameID}/players/${playerID}`);
   const [playerName, setPlayerName] = useState('');
-
   const [life, setLife] = useState(40); 
   const [counter, setCounter] = useState(0);
+  const [isNameSet, setIsNameSet] = useState(false);
 
   const changeLife = (newLife) => {
     setLife(newLife);
@@ -20,20 +20,24 @@ const PrincipalPlayer = ({gameID}) => {
     setCounter(newCounter);
     update(playerRef, { counter: newCounter });
   };
+
   useEffect(() => {
-    onValue(playerRef, (snapshot) => {
-      const data = snapshot.val();
-      if (data) {
-        if(data.playerName !== '') {
-          setPlayerName(data.playerName);
-          setLife(data.life || 40);
-          setCounter(data.counter || 0);
-        } else {
-          alert("No te podes sumar sin nombre")
+    const unsubscribe = onValue(playerRef, (snapshot) => {
+      onValue(playerRef, (snapshot) => {
+        const data = snapshot.val();
+        if (data) {
+          if(data.playerName !== '' && !isNameSet) {
+            setPlayerName(data.playerName);
+            setLife(data.life || 40);
+            setCounter(data.counter || 0);
+          } else if (data.playerName === ''){
+            alert("No te podes sumar sin nombre");
+          }
         }
-      }
+      });
+    return () => unsubscribe();
     });
-  }, [playerRef]);
+  }, [playerRef, isNameSet]);
 
   return (
     <div className='principalPlayer'>

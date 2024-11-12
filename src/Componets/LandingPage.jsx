@@ -8,9 +8,13 @@ function LandingPage({ onGameSelect }) {
   const [games, setGames] = useState([]);
   const gameArray = useRef([]);
 
-
   useEffect(() => {
     const gamesRef = ref(db, 'games');
+    const storedPlayerName = localStorage.getItem('playerName');
+    
+    if (storedPlayerName) {
+      setPlayerName(storedPlayerName); // Autocompleta el nombre del jugador si existe en localStorage
+    }
 
     onValue(gamesRef, (snapshot) => {
       const data = snapshot.val();
@@ -26,10 +30,14 @@ function LandingPage({ onGameSelect }) {
   }, []);
 
   const handleGameSelect = (gameID) => {
+    if (!inputPlayerName) {
+      alert("Por favor, ingresa un nombre de jugador antes de unirte a una partida.");
+      return;
+    }
+
     const playerID = localStorage.getItem('playerID') || push(ref(db, 'games')).key;
     localStorage.setItem('playerID', playerID);
-    const localGameID = localStorage.getItem('gameID') || push(ref(db, 'games')).key;
-    localStorage.setItem('gameID', localGameID);
+    localStorage.setItem('playerName', inputPlayerName); // Guarda el nombre actualizado en localStorage
 
     const gameRef = ref(db, `games/${gameID}/players/${playerID}`);
 
@@ -40,52 +48,49 @@ function LandingPage({ onGameSelect }) {
           life: 40,
           counter: 0,
         })
-        .then(() => {
-          alert("Jugador añadido a la partida existente");
-        })
-        .catch((error) => {
-          console.error("Error al añadir jugador:", error);
-        });
+        .then(() => alert("Jugador añadido a la partida existente"))
+        .catch((error) => console.error("Error al añadir jugador:", error));
       }
       onGameSelect(gameID);
-      console.log('localGamID', localStorage.getItem('gameID')); 
     });
   };
 
   const createGame = () => {
-    const namesArray = gameArray.current.map(game => game.gameName);
-
-    if (namesArray.includes(inputGameName)) {
-      return alert("Error: partida ya existente MAMERTO");
-    } else {
-      const playerID = localStorage.getItem('playerID') || push(ref(db, 'games')).key;
-      localStorage.setItem('playerID', playerID);
-
-      const newGameRef = push(ref(db, 'games'));
-      const newGameID = newGameRef.key;
-
-      set(newGameRef, {
-        gameName: inputGameName,
-        players: {
-          [playerID]: {
-            playerName: inputPlayerName,
-            life: 40,
-            counter: 0,
-          },
-        },
-      })
-      .then(() => {
-        alert("Partida creada");
-        onGameSelect(newGameID);
-        localStorage.setItem('gameID', newGameID);
-      })
-      .catch((error) => {
-        alert("Error: " + error.message);
-      });
+    if (!inputPlayerName) {
+      alert("Por favor, ingresa un nombre de jugador antes de crear una partida.");
+      return;
     }
-    
-  };
 
+    const namesArray = gameArray.current.map(game => game.gameName);
+    if (namesArray.includes(inputGameName)) {
+      alert("Error: partida ya existente MAMERTO");
+      return;
+    }
+
+    const playerID = localStorage.getItem('playerID') || push(ref(db, 'games')).key;
+    localStorage.setItem('playerID', playerID);
+    localStorage.setItem('playerName', inputPlayerName); // Guarda el nombre actualizado en localStorage
+
+    const newGameRef = push(ref(db, 'games'));
+    const newGameID = newGameRef.key;
+
+    set(newGameRef, {
+      gameName: inputGameName,
+      players: {
+        [playerID]: {
+          playerName: inputPlayerName,
+          life: 40,
+          counter: 0,
+        },
+      },
+    })
+    .then(() => {
+      alert("Partida creada");
+      onGameSelect(newGameID);
+      localStorage.setItem('gameID', newGameID);
+    })
+    .catch((error) => alert("Error: " + error.message));
+  };
 
   return (
     <div className="header">
@@ -98,7 +103,6 @@ function LandingPage({ onGameSelect }) {
         onChange={(e) => setPlayerName(e.target.value)}
       />
 
-
       <div>
         <label htmlFor="gameSelect">Elige un juego ya creado: </label>
         <select id="gameSelect" onChange={(e) => handleGameSelect(e.target.value)}>
@@ -110,7 +114,6 @@ function LandingPage({ onGameSelect }) {
           ))}
         </select>
       </div>
-
 
       <input
         type="text"
