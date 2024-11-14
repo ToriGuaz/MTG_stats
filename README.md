@@ -88,9 +88,7 @@ priorizamos correxion de errores
 --QUE SI CAMBIAS DE PARTIDA TE SAQUE (ya hicimos el comando de agregar el id de game en localstorage) - DONE
 --que si queda negativo muestre el negativo y no vuelva a 40 - DONE
 -que si no pongo player, traiga el que esta vinculado al id de localstorage - DONE
--que no aparezca principal player en la lista de oponentes - 
+-que no aparezca principal player en la lista de oponentes - DONE
 -chequeos de seguridad - 
+-agregar contadores que falten 
 -estilos
-
-
-    
