@@ -1,3 +1,21 @@
+@font-face {
+    font-family: "RINGM";
+    src:
+      url(./Fonts/RINGM___.TTF) format("opentype") 
+}
+
+@media (max-width: 768px) {
+    .oponente {
+        flex: 1 1 calc(50% - 20px); 
+    }
+}
+
+@media (max-width: 480px) {
+    .oponente {
+        flex: 1 1 calc(100% - 20px); 
+    }
+}
+
 html, body {
     margin: 0; 
     padding: 0; 
@@ -7,9 +25,10 @@ html, body {
     overflow-y: auto; 
     background-image: url(./Imgs/mtg-background.jpg);
     background-size: cover;
-    
-
+    font-family: "RINGM", sans-serif;
 }
+
+
 
 .landingPage {    
     background-color: #b2fab4;
@@ -45,8 +64,9 @@ button {
 
 .lifeButtons {
     list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
-
 
 .principalPlayer {
     display: flex;
@@ -62,7 +82,6 @@ button {
     border: 2px solid black;
     padding: 10px;
     background-color: rgba(248, 90, 214, 0.2);
-
 }
 
 .listaDeOponentes {
@@ -75,15 +94,5 @@ button {
     list-style-type: none;
 }
 
-@media (max-width: 768px) {
-    .oponente {
-        flex: 1 1 calc(50% - 20px); /* En pantallas medianas, cada oponente ocupará el 50% */
-    }
-}
 
-@media (max-width: 480px) {
-    .oponente {
-        flex: 1 1 calc(100% - 20px); /* En pantallas pequeñas, cada oponente ocupará el 100% */
-    }
-}
 

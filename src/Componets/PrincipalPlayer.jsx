@@ -47,10 +47,10 @@ const PrincipalPlayer = ({gameID}) => {
         <p>Counter: {counter}</p>
       </div>
       <ul className="lifeButtons" >
-        <li><button onClick={() => changeLife(life + 1)}>+1</button></li>
         <li><button onClick={() => changeLife(life - 1)}>-1</button></li>
-        <li><button onClick={() => changeLife(life + 5)}>+5</button></li>
+        <li><button onClick={() => changeLife(life + 1)}>+1</button></li>
         <li><button onClick={() => changeLife(life - 5)}>-5</button></li>
+        <li><button onClick={() => changeLife(life + 5)}>+5</button></li>
         <li><button className="counterButton" onClick={() => incrementCounter( counter + 1)}>Counter</button></li>
       </ul>
     </div>

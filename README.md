@@ -82,7 +82,7 @@ _ahora si, proximos pasos:
     -actualizar map en el return de app.js que no se muestran automaticamente las modificaciones en los valores de players.
 
 
-10/11: 
+
 priorizamos correxion de errores
 -proxima tarea es sumarse a una partida existente - DONE
 --QUE SI CAMBIAS DE PARTIDA TE SAQUE (ya hicimos el comando de agregar el id de game en localstorage) - DONE
@@ -91,4 +91,8 @@ priorizamos correxion de errores
 -que no aparezca principal player en la lista de oponentes - DONE
 -chequeos de seguridad - PATENTE PENDIENTE - 
 -agregar contadores que falten 
--estilos
+-estilos (imputs, lists y alerts - a futuro animaciones)
+-definir que si una partida queda sin players, borrarla
+-poner boton de actualizar sin que te saque de la partida por si hay algun cambio o error
+-
+
