@@ -5,6 +5,9 @@ html, body {
     height: 100%; 
     overflow-x: hidden; 
     overflow-y: auto; 
+    background-image: url(./Imgs/mtg-background.jpg);
+    background-size: cover;
+    
 
 }
 
@@ -20,6 +23,7 @@ html, body {
     border-width: 1px;
     align-items: center;
     flex-wrap: wrap;
+    background-color: rgba(121, 62, 197, 0.2);
 }
 
 .gameName {
@@ -56,9 +60,9 @@ button {
     max-width: 300px;
     border-width: 1px;
     border: 2px solid black;
-    /*justify-content: space-between; */
-    background-color: bisque;
     padding: 10px;
+    background-color: rgba(248, 90, 214, 0.2);
+
 }
 
 .listaDeOponentes {
