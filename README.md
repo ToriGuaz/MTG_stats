@@ -89,6 +89,6 @@ priorizamos correxion de errores
 --que si queda negativo muestre el negativo y no vuelva a 40 - DONE
 -que si no pongo player, traiga el que esta vinculado al id de localstorage - DONE
 -que no aparezca principal player en la lista de oponentes - DONE
--chequeos de seguridad - 
+-chequeos de seguridad - PATENTE PENDIENTE - 
 -agregar contadores que falten 
 -estilos

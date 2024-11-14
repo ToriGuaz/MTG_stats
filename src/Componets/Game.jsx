@@ -41,7 +41,7 @@ function Game( {gameID} ) {
 
   return (
     <div className='game'>
-        <h2> Partida: {gameName}</h2>
+        <h2 className='gameName'> Partida: {gameName}</h2>
         <PrincipalPlayer gameID={gameID} />
         <ul className="listaDeOponentes">
             {players

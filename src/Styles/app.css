@@ -1,5 +1,14 @@
+html, body {
+    margin: 0; 
+    padding: 0; 
+    width: 100%; 
+    height: 100%; 
+    overflow-x: hidden; 
+    overflow-y: auto; 
 
-.header {    
+}
+
+.landingPage {    
     background-color: #b2fab4;
     padding: 20px;
     width: 100%; 
@@ -10,6 +19,11 @@
     justify-content: space-between; 
     border-width: 1px;
     align-items: center;
+    flex-wrap: wrap;
+}
+
+.gameName {
+    text-align: center;
 }
 
 button {
@@ -19,12 +33,10 @@ button {
     border-radius: 5px; 
     padding: 10px 15px; 
     text-align: center; 
-    text-decoration: none; 
     display: inline-block; 
     font-size: 16px; 
     margin: 5px; 
     cursor: pointer; 
-    transition: background-color 0.3s, transform 0.2s; 
 }
 
 .lifeButtons {
@@ -39,9 +51,12 @@ button {
 } 
 
 .oponente {
+    flex: 1 1 calc(33.33% - 20px);
+    min-width: 200px;
+    max-width: 300px;
     border-width: 1px;
     border: 2px solid black;
-    justify-content: space-between; 
+    /*justify-content: space-between; */
     background-color: bisque;
     padding: 10px;
 }
@@ -49,12 +64,22 @@ button {
 .listaDeOponentes {
     display: flex;
     flex-wrap: wrap;  
-    justify-content: space-around;
-    gap: 20px;  
+    justify-content: center;
+    width: 100%;
     margin-bottom: 20px;
+    align-items: center;
     list-style-type: none;
 }
 
-.game {
-    padding: 5%;
+@media (max-width: 768px) {
+    .oponente {
+        flex: 1 1 calc(50% - 20px); /* En pantallas medianas, cada oponente ocupará el 50% */
+    }
 }
+
+@media (max-width: 480px) {
+    .oponente {
+        flex: 1 1 calc(100% - 20px); /* En pantallas pequeñas, cada oponente ocupará el 100% */
+    }
+}
+
