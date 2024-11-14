@@ -28,7 +28,7 @@ const PrincipalPlayer = ({gameID}) => {
         if (data) {
           if(data.playerName !== '' && !isNameSet) {
             setPlayerName(data.playerName);
-            setLife(data.life || 40);
+            setLife(data.life !== undefined ? data.life : 40);
             setCounter(data.counter || 0);
           } else if (data.playerName === ''){
             alert("No te podes sumar sin nombre");

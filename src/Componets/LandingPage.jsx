@@ -76,6 +76,9 @@ function LandingPage({ onGameSelect }) {
     }
     const namesArray = gameArray.current.map(game => game.gameName);
 
+    if (!inputGameName) {
+      return alert("Error: Por favor ingresa un nombre de partida.");
+    }
     if (namesArray.includes(inputGameName)) {
       return alert("Error: partida ya existente");
     } else {

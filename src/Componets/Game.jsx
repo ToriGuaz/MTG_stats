@@ -21,10 +21,10 @@ function Game( {gameID} ) {
                 setGameName(data.gameName); 
                 
                 if (data.players) {
-                  setPlayers(Object.keys(data.players)); // Establece los jugadores
+                  setPlayers(Object.keys(data.players)); 
 
                 } else {
-                  setPlayers([]); // Si no hay jugadores, establece un array vacío
+                  setPlayers([]); 
                 }
                 
               } else {
@@ -37,12 +37,16 @@ function Game( {gameID} ) {
         }
       }, [gameID]);
 
+  const principalPlayerID = localStorage.getItem('playerID');
+
   return (
     <div className='game'>
         <h2> Partida: {gameName}</h2>
         <PrincipalPlayer gameID={gameID} />
         <ul className="listaDeOponentes">
-            {players.map((playerID) => {
+            {players
+            .filter((playerID) => playerID !== principalPlayerID)
+            .map((playerID) => {
             //console.log("Rendering Opponent with:", item);
             return (
                 <li  key={playerID}>

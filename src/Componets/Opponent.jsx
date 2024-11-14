@@ -21,7 +21,7 @@ const Opponent = ({ opponentID , gameID }) => {
             const data = snapshot.val();
             if (data) {
                 setOpponentName(data.playerName || 'jugador no puso nombre');
-                setlifeCount(data.life || 40);
+                setlifeCount(data.life !== undefined ? data.life : 40);
                 setCounter(data.counter || 0);
               } else {
                 console.log('no tenes nombre, GIL');
