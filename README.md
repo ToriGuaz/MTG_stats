@@ -91,7 +91,7 @@ priorizamos correxion de errores
 -que no aparezca principal player en la lista de oponentes - DONE
 -chequeos de seguridad - PATENTE PENDIENTE - 
 -agregar contadores que falten 
--estilos (imputs, lists y alerts - a futuro animaciones)
+-estilos (imputs, lists y alerts - a futuro animaciones) - no logre que el select quede con estilos jajan't -
 -definir que si una partida queda sin players, borrarla
 -poner boton de actualizar sin que te saque de la partida por si hay algun cambio o error
 -

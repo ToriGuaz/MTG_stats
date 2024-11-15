@@ -28,8 +28,6 @@ html, body {
     font-family: "RINGM", sans-serif;
 }
 
-
-
 .landingPage {    
     background-color: #b2fab4;
     padding: 20px;
@@ -42,7 +40,7 @@ html, body {
     border-width: 1px;
     align-items: center;
     flex-wrap: wrap;
-    background-color: rgba(121, 62, 197, 0.2);
+    background-color: rgba(35, 5, 75, 0.2);
 }
 
 .gameName {
@@ -93,6 +91,42 @@ button {
     align-items: center;
     list-style-type: none;
 }
-
+ 
+  .input, select {
+    width: 200px;
+    height: 45px;
+    border: none;
+    outline: none;
+    padding: 0px 7px;
+    border-radius: 6px;
+    color: #333333;
+    font-size: 15px;
+    background-color: transparent;
+    box-shadow: 3px 3px 10px rgba(0,0,0,1),
+    -1px -1px 6px rgba(10, 8, 8, 0.4);
+  }
+  
+  .input:focus {
+    border: 2px solid transparent;
+    color: #0a0505;
+    box-shadow: 3px 3px 10px rgba(0,0,0,1),
+    -1px -1px 6px rgba(7, 4, 4, 0.4),
+    inset 3px 3px 10px rgba(0,0,0,1),
+    inset -1px -1px 6px rgba(10, 6, 6, 0.4);
+  }
+  
+.select option {
+    width: 200px;
+    height: 45px;
+    border: none;
+    outline: none;
+    padding: 0px 7px;
+    border-radius: 6px;
+    color: #333333;
+    font-size: 15px;
+    background-color: transparent;
+    box-shadow: 3px 3px 10px rgba(0,0,0,1),
+    -1px -1px 6px rgba(10, 8, 8, 0.4);
+}
 
 

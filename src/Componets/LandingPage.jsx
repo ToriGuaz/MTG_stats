@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { ref, push, set, onValue, remove } from 'firebase/database';
 import { db } from '../firebaseConfig';
 
+
 function LandingPage({ onGameSelect }) {
   const [inputGameName, setGameName] = useState('');
   const [inputPlayerName, setPlayerName] = useState('');
@@ -23,13 +24,11 @@ function LandingPage({ onGameSelect }) {
       }
     });
     
-    // Autocompletar nombre de jugador desde localStorage si existe
     const savedPlayerName = localStorage.getItem('playerName');
     if (savedPlayerName) setPlayerName(savedPlayerName);
     
   }, []);
 
-  // Función para eliminar al jugador del juego anterior
   const removePlayerFromPreviousGame = () => {
     const previousGameID = localStorage.getItem('gameID');
     const playerID = localStorage.getItem('playerID');
@@ -46,7 +45,6 @@ function LandingPage({ onGameSelect }) {
     if (!inputPlayerName) {
       return alert("Error: Por favor ingresa un nombre de jugador.");
     }
-    // Elimina al jugador de la partida anterior antes de unirse a una nueva
     removePlayerFromPreviousGame();
 
     const playerID = localStorage.getItem('playerID') || push(ref(db, 'games')).key;
@@ -82,7 +80,6 @@ function LandingPage({ onGameSelect }) {
     if (namesArray.includes(inputGameName)) {
       return alert("Error: partida ya existente");
     } else {
-      // Elimina al jugador de la partida anterior antes de crear una nueva
       removePlayerFromPreviousGame();
 
       const playerID = localStorage.getItem('playerID') || push(ref(db, 'games')).key;
@@ -116,27 +113,29 @@ function LandingPage({ onGameSelect }) {
   return (
     <div className="landingPage">
       <p>Únete a una partida o crea una nueva</p>
-
-      <input
-        type="text"
-        placeholder="Nombre de jugador"
-        value={inputPlayerName}
-        onChange={(e) => setPlayerName(e.target.value)}
-      />
+  
+        <input
+          className='input'
+          type="text"
+          placeholder="Nombre de jugador"
+          value={inputPlayerName}
+          onChange={(e) => setPlayerName(e.target.value)}
+        />
 
       <div>
         <label htmlFor="gameSelect">Elige un juego ya creado: </label>
-        <select id="gameSelect" onChange={(e) => handleGameSelect(e.target.value)}>
+        <select className='select' id="gameSelect" onChange={(e) => handleGameSelect(e.target.value)}>
           <option value="">Seleccione una partida</option>
           {games.map((game) => (
-            <option key={game.id} value={game.id}>
+            <option  key={game.id} value={game.id}>
               {game.gameName}
             </option>
           ))}
         </select>
       </div>
 
-      <input
+      <input 
+        className='input'
         type="text"
         placeholder="Crear partida"
         value={inputGameName}
