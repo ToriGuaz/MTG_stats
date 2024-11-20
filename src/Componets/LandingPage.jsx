@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { ref, push, set, onValue, remove } from 'firebase/database';
 import { db } from '../firebaseConfig';
 
-
 function LandingPage({ onGameSelect }) {
   const [inputGameName, setGameName] = useState('');
   const [inputPlayerName, setPlayerName] = useState('');
@@ -36,7 +35,21 @@ function LandingPage({ onGameSelect }) {
     if (previousGameID && playerID) {
       const playerRef = ref(db, `games/${previousGameID}/players/${playerID}`);
       remove(playerRef)
-        .then(() => console.log("Jugador eliminado de la partida anterior"))
+        .then(() => {
+          console.log("Jugador eliminado de la partida anterior");
+
+          // Verificamos si quedan jugadores en la partida
+          const gameRef = ref(db, `games/${previousGameID}/players`);
+          onValue(gameRef, (snapshot) => {
+            const players = snapshot.val();
+            if (!players || Object.keys(players).length === 0) {
+              // Si no quedan jugadores, eliminamos la partida
+              remove(ref(db, `games/${previousGameID}`))
+                .then(() => console.log("Partida eliminada"))
+                .catch((error) => console.error("Error al eliminar partida:", error));
+            }
+          });
+        })
         .catch((error) => console.error("Error al eliminar jugador:", error));
     }
   };
@@ -45,7 +58,7 @@ function LandingPage({ onGameSelect }) {
     if (!inputPlayerName) {
       return alert("Error: Por favor ingresa un nombre de jugador.");
     }
-    if (gameID !== localStorage.getItem('gameID')){
+    if (gameID !== localStorage.getItem('gameID')) {
       removePlayerFromPreviousGame();
     }
     const playerID = localStorage.getItem('playerID') || push(ref(db, 'games')).key;
@@ -65,15 +78,15 @@ function LandingPage({ onGameSelect }) {
         black: 0,
         white: 0,
         colorless: 0,
-      }, 
+      },
     })
-    .then(() => {
-      alert("Jugador añadido a la partida existente");
-      onGameSelect(gameID);
-    })
-    .catch((error) => {
-      console.error("Error al añadir jugador:", error);
-    });
+      .then(() => {
+        alert("Jugador añadido a la partida existente");
+        onGameSelect(gameID);
+      })
+      .catch((error) => {
+        console.error("Error al añadir jugador:", error);
+      });
   };
 
   const createGame = () => {
@@ -111,45 +124,45 @@ function LandingPage({ onGameSelect }) {
               black: 0,
               white: 0,
               colorless: 0,
-            }, 
+            },
           },
         },
       })
-      .then(() => {
-        alert("Partida creada");
-        onGameSelect(newGameID);
-      })
-      .catch((error) => {
-        alert("Error: " + error.message);
-      });
+        .then(() => {
+          alert("Partida creada");
+          onGameSelect(newGameID);
+        })
+        .catch((error) => {
+          alert("Error: " + error.message);
+        });
     }
   };
 
   return (
     <div className="landingPage">
       <p>Únete a una partida o crea una nueva</p>
-  
-        <input
-          className='input'
-          type="text"
-          placeholder="Nombre de jugador"
-          value={inputPlayerName}
-          onChange={(e) => setPlayerName(e.target.value)}
-        />
+
+      <input
+        className='input'
+        type="text"
+        placeholder="Nombre de jugador"
+        value={inputPlayerName}
+        onChange={(e) => setPlayerName(e.target.value)}
+      />
 
       <div>
         <label htmlFor="gameSelect">Elige un juego ya creado: </label>
         <select className='select' id="gameSelect" onChange={(e) => handleGameSelect(e.target.value)}>
           <option value="">Seleccione una partida</option>
           {games.map((game) => (
-            <option  key={game.id} value={game.id}>
+            <option key={game.id} value={game.id}>
               {game.gameName}
             </option>
           ))}
         </select>
       </div>
 
-      <input 
+      <input
         className='input'
         type="text"
         placeholder="Crear partida"
@@ -162,3 +175,4 @@ function LandingPage({ onGameSelect }) {
 }
 
 export default LandingPage;
+

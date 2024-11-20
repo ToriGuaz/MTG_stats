@@ -12,7 +12,7 @@ function Game( {gameID} ) {
 
     if (!gameID && localStorage.getItem("gameID")) {
       gameID = localStorage.getItem("gameID");
-    };
+    } 
 
     useEffect(() => {
         if (gameID) {
