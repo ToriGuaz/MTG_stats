@@ -33,8 +33,7 @@ const Opponent = ({ opponentID , gameID }) => {
 
     return (
         <div className="oponente">
-            <h2>{opponentName}</h2>
-            <p> Vida: {lifeCount}</p>
+            <p>{opponentName}</p>   <h2 >{lifeCount}</h2>
             <p> Contador: {counter} </p>
         </div>
     );

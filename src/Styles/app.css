@@ -55,9 +55,10 @@ button {
     padding: 10px 15px; 
     text-align: center; 
     display: inline-block; 
-    font-size: 16px; 
+    font-size: 17px; 
     margin: 5px; 
     cursor: pointer; 
+    font-family: "RINGM", sans-serif;
 }
 
 .lifeButtons {
@@ -92,7 +93,7 @@ button {
     list-style-type: none;
 }
  
-  .input, select {
+.input, select {
     width: 200px;
     height: 45px;
     border: none;
@@ -100,13 +101,14 @@ button {
     padding: 0px 7px;
     border-radius: 6px;
     color: #333333;
-    font-size: 15px;
+    font-size: 17px;
     background-color: transparent;
     box-shadow: 3px 3px 10px rgba(0,0,0,1),
     -1px -1px 6px rgba(10, 8, 8, 0.4);
+    font-family: "RINGM", sans-serif;
   }
   
-  .input:focus {
+.input:focus {
     border: 2px solid transparent;
     color: #0a0505;
     box-shadow: 3px 3px 10px rgba(0,0,0,1),
@@ -115,7 +117,7 @@ button {
     inset -1px -1px 6px rgba(10, 6, 6, 0.4);
   }
   
-.select option {
+select{
     width: 200px;
     height: 45px;
     border: none;
@@ -123,10 +125,15 @@ button {
     padding: 0px 7px;
     border-radius: 6px;
     color: #333333;
-    font-size: 15px;
+    font-size: 17px;
     background-color: transparent;
     box-shadow: 3px 3px 10px rgba(0,0,0,1),
-    -1px -1px 6px rgba(10, 8, 8, 0.4);
+    -1px -1px 6px rgba(10, 8, 8, 0.4);       
 }
 
+option{
+    color: #fdfafa;
+    background-color: #1a1a1a;
+
+}
 
