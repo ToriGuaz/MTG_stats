@@ -45,8 +45,9 @@ function LandingPage({ onGameSelect }) {
     if (!inputPlayerName) {
       return alert("Error: Por favor ingresa un nombre de jugador.");
     }
-    removePlayerFromPreviousGame();
-
+    if (gameID !== localStorage.getItem('gameID')){
+      removePlayerFromPreviousGame();
+    }
     const playerID = localStorage.getItem('playerID') || push(ref(db, 'games')).key;
     localStorage.setItem('playerID', playerID);
     localStorage.setItem('playerName', inputPlayerName);

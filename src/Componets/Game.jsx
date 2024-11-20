@@ -7,7 +7,8 @@ import Opponent from './Opponent'
 
 function Game( {gameID} ) {
     const [gameName, setGameName] = useState('');
-    const [players, setPlayers] = useState([]);    
+    const [players, setPlayers] = useState([]); 
+    const principalPlayerID = localStorage.getItem('playerID');   
 
     useEffect(() => {
         if (gameID) {
@@ -37,7 +38,13 @@ function Game( {gameID} ) {
         }
       }, [gameID]);
 
-  const principalPlayerID = localStorage.getItem('playerID');
+      if (!gameID || !principalPlayerID) {
+        return (
+          <div className="game">
+            <h2 className="gameName">Por favor, selecciona o crea una partida.</h2>
+          </div>
+        );
+      }
 
   return (
     <div className='game'>
@@ -61,13 +68,3 @@ function Game( {gameID} ) {
 }
 
 export default Game
-
-
-
-/*        <ul>
-            {players.map((item, index) => (//ver de hacer esto de forma que se actualice con los cambios.
-            <li key={index}>
-                {item.playerName}: {item.life} : {item.counter}
-            </li>
-            ))}
-        </ul> */
