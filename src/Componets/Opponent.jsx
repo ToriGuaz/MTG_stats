@@ -2,41 +2,62 @@ import React, { useEffect, useState } from 'react';
 import { ref, onValue } from 'firebase/database';
 import { db } from '../firebaseConfig';
 
+const Opponent = ({ opponentID, gameID }) => {
+  const [lifeCount, setLifeCount] = useState(40);
+  const [opponentName, setOpponentName] = useState('');
+  const [mana, setMana] = useState({
+    red: 0,
+    blue: 0,
+    green: 0,
+    black: 0,
+    white: 0,
+    colorless: 0,
+  });
 
-const Opponent = ({ opponentID , gameID }) => {
-    const [lifeCount, setlifeCount] = useState(40);
-    const [opponentName, setOpponentName] = useState(''); 
-    const [counter, setCounter] = useState(0);
+  useEffect(() => {
+    if (!opponentID || !gameID) {
+      console.warn("Missing opponentID or gameID:", { opponentID, gameID });
+      return;
+    }
 
+    const playerRef = ref(db, `games/${gameID}/players/${opponentID}`);
 
-    useEffect(() => {
-        if (!opponentID || !gameID) {
-            console.warn("Missing opponentID or gameID:", { opponentID, gameID });
-            return; 
-        }
-
-        const lifeCountRef = ref(db, `games/${gameID}/players/${opponentID}`);
-
-        onValue(lifeCountRef, (snapshot) => {
-            const data = snapshot.val();
-            if (data) {
-                setOpponentName(data.playerName || 'jugador no puso nombre');
-                setlifeCount(data.life !== undefined ? data.life : 40);
-                setCounter(data.counter || 0);
-              } else {
-                console.log('no tenes nombre, GIL');
-              }
- 
+    onValue(playerRef, (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        setOpponentName(data.playerName || 'Jugador sin nombre');
+        setLifeCount(data.life !== undefined ? data.life : 40);
+        setMana({
+          red: data.manaRed || 0,
+          blue: data.manaBlue || 0,
+          green: data.manaGreen || 0,
+          black: data.manaBlack || 0,
+          white: data.manaWhite || 0,
+          colorless: data.manaColorless || 0,
         });
+      } else {
+        console.log('Datos del oponente no encontrados.');
+      }
+    });
+  }, [opponentID, gameID]);
 
-    }, [opponentID, gameID]);
-
-    return (
-        <div className="oponente">
-            <p>{opponentName}</p>   <h2 >{lifeCount}</h2>
-            <p> Contador: {counter} </p>
-        </div>
-    );
+  return (
+    <div className="oponente">
+      <p>{opponentName}</p>
+      <h2>{lifeCount}</h2>
+      <ul>
+        <p>Maná:</p>
+        {Object.entries(mana)
+          .filter(([_, value]) => value !== 0) // Filtrar los tipos de maná con valor distinto de 0
+          .map(([type, value]) => (
+            <li key={type}>
+              {type.charAt(0).toUpperCase() + type.slice(1)}: {value}
+            </li>
+          ))}
+      </ul>
+    </div>
+  );
 };
 
 export default Opponent;
+

@@ -57,7 +57,14 @@ function LandingPage({ onGameSelect }) {
     set(gameRef, {
       playerName: inputPlayerName,
       life: 40,
-      counter: 0,
+      mana: {
+        red: 0,
+        blue: 0,
+        green: 0,
+        black: 0,
+        white: 0,
+        colorless: 0,
+      }, 
     })
     .then(() => {
       alert("Jugador añadido a la partida existente");
@@ -96,7 +103,14 @@ function LandingPage({ onGameSelect }) {
           [playerID]: {
             playerName: inputPlayerName,
             life: 40,
-            counter: 0,
+            mana: {
+              red: 0,
+              blue: 0,
+              green: 0,
+              black: 0,
+              white: 0,
+              colorless: 0,
+            }, 
           },
         },
       })
