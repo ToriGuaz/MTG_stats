@@ -23,14 +23,12 @@ const PrincipalPlayer = ({ gameID }) => {
     update(playerRef, { life: newLife });
   };
 
-  // Cambiar maná y sincronizar con Firebase
   const changeMana = (type, value) => {
     const newMana = { ...mana, [type]: mana[type] + value };
     setMana(newMana);
     update(playerRef, { mana: newMana });
   };
 
-  // Sincronizar estado con Firebase
   useEffect(() => {
     const unsubscribe = onValue(playerRef, (snapshot) => {
       const data = snapshot.val();
@@ -38,7 +36,6 @@ const PrincipalPlayer = ({ gameID }) => {
         setPlayerName(data.playerName || '');
         setLife(data.life !== undefined ? data.life : 40);
 
-        // Solo actualiza el estado de `mana` si cambió
         if (JSON.stringify(data.mana) !== JSON.stringify(mana)) {
           setMana(data.mana || {
             red: 0,

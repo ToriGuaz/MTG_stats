@@ -10,6 +10,10 @@ function Game( {gameID} ) {
     const [players, setPlayers] = useState([]); 
     const principalPlayerID = localStorage.getItem('playerID');   
 
+    if (!gameID && localStorage.getItem("gameID")) {
+      gameID = localStorage.getItem("gameID");
+    };
+
     useEffect(() => {
         if (gameID) {
           const dbRef = ref(getDatabase());
@@ -54,7 +58,6 @@ function Game( {gameID} ) {
             {players
             .filter((playerID) => playerID !== principalPlayerID)
             .map((playerID) => {
-            //console.log("Rendering Opponent with:", item);
             return (
                 <li  key={playerID}>
                 <Opponent opponentID={playerID} gameID={gameID} />

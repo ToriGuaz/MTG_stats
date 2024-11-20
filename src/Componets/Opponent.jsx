@@ -48,7 +48,7 @@ const Opponent = ({ opponentID, gameID }) => {
       <ul>
         <p>Maná:</p>
         {Object.entries(mana)
-          .filter(([_, value]) => value !== 0) // Filtrar los tipos de maná con valor distinto de 0
+          .filter(([_, value]) => value !== 0) 
           .map(([type, value]) => (
             <li key={type}>
               {type.charAt(0).toUpperCase() + type.slice(1)}: {value}
