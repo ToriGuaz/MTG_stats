@@ -153,7 +153,6 @@ function LandingPage({ onGameSelect }) {
       <div>
         <label htmlFor="gameSelect">Elige un juego ya creado: </label>
         <select className='select' id="gameSelect" onChange={(e) => handleGameSelect(e.target.value)}>
-          <option value="">Seleccione una partida</option>
           {games.map((game) => (
             <option key={game.id} value={game.id}>
               {game.gameName}
