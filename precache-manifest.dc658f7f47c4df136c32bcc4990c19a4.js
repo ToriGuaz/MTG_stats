@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "36899d562036d949e33cb200219188f0",
+    "revision": "36e9b97460462c11f99ab6b15461484e",
     "url": "/mtg_stats/index.html"
   },
   {
-    "revision": "1c5557c18c2d5bb0d1b3",
-    "url": "/mtg_stats/static/css/main.be5cbc41.chunk.css"
+    "revision": "bb4fe25da1fff2b2821d",
+    "url": "/mtg_stats/static/css/main.4c8ec8d3.chunk.css"
   },
   {
     "revision": "7900a49e93a273450edb",
@@ -20,12 +20,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mtg_stats/static/js/3.6120993e.chunk.js"
   },
   {
-    "revision": "1c5557c18c2d5bb0d1b3",
-    "url": "/mtg_stats/static/js/main.f55e6012.chunk.js"
+    "revision": "bb4fe25da1fff2b2821d",
+    "url": "/mtg_stats/static/js/main.585dc243.chunk.js"
   },
   {
     "revision": "1619304c0141eed36379",
     "url": "/mtg_stats/static/js/runtime-main.8f9195cd.js"
+  },
+  {
+    "revision": "bec1dc061960782df16e73f9881c9829",
+    "url": "/mtg_stats/static/media/RINGM___.bec1dc06.TTF"
   },
   {
     "revision": "e606683fe0e790a43b65fe3ad7f5f353",
