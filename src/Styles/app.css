@@ -40,7 +40,7 @@ html, body {
     border-width: 1px;
     align-items: center;
     flex-wrap: wrap;
-    background-color: rgba(35, 5, 75, 0.2);
+    background-color: rgba(35, 5, 75, 0.7);
 }
 
 .gameName {
