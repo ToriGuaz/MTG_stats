@@ -90,9 +90,9 @@ priorizamos correxion de errores
 -que si no pongo player, traiga el que esta vinculado al id de localstorage - DONE
 -que no aparezca principal player en la lista de oponentes - DONE
 -chequeos de seguridad - PATENTE PENDIENTE - 
--agregar contadores que falten 
+-agregar contadores que falten -FALTAN: COMANDER - VENENO 
 -estilos (imputs, lists y alerts - a futuro animaciones) - no logre que el select quede con estilos jajan't -
--definir que si una partida queda sin players, borrarla
--poner boton de actualizar sin que te saque de la partida por si hay algun cambio o error
--
+-definir que si una partida queda sin players, borrarla - DONE
+-OPONENTE MUESTRE LOS CONTADORES DE MANA
+-resolver bug de poder sumar jugador nuevo a partida sin haber creado una antes
 

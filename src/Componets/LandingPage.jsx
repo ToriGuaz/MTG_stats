@@ -1,6 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ref, push, set, onValue, remove } from 'firebase/database';
 import { db } from '../firebaseConfig';
+import React, { useState, useEffect, useRef } from "react";
+import {
+  dropdown_wrapper,
+  dropdown_activator,
+  dropdown_item_list,
+  active,
+  item_list,
+} from "./dropdown.module.css";
+
+
 
 function LandingPage({ onGameSelect }) {
   const [inputGameName, setGameName] = useState('');
@@ -38,12 +48,10 @@ function LandingPage({ onGameSelect }) {
         .then(() => {
           console.log("Jugador eliminado de la partida anterior");
 
-          // Verificamos si quedan jugadores en la partida
           const gameRef = ref(db, `games/${previousGameID}/players`);
           onValue(gameRef, (snapshot) => {
             const players = snapshot.val();
             if (!players || Object.keys(players).length === 0) {
-              // Si no quedan jugadores, eliminamos la partida
               remove(ref(db, `games/${previousGameID}`))
                 .then(() => console.log("Partida eliminada"))
                 .catch((error) => console.error("Error al eliminar partida:", error));
@@ -136,12 +144,25 @@ function LandingPage({ onGameSelect }) {
           alert("Error: " + error.message);
         });
     }
+  
+  
+
   };
 
   return (
     <div className="landingPage">
-      <p>Únete a una partida o crea una nueva</p>
+      <label class="hamburger">
+        <input type="checkbox" />
+        <svg viewBox="0 0 32 32">
+          <path
+            class="line line-top-bottom"
+            d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
+          ></path>
+          <path class="line" d="M7 16 27 16"></path>
+        </svg>
+      </label>
 
+      <label>Únete a una partida o crea una nueva</label>
       <input
         className='input'
         type="text"
