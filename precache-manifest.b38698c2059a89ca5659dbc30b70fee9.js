@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e1b05e362b64b31f37ce30ca0159db41",
+    "revision": "69fe817febf776bcde8d8153445d0dd0",
     "url": "/mtg_stats/index.html"
   },
   {
-    "revision": "52a68cc8d82877415746",
-    "url": "/mtg_stats/static/css/main.a7f85d82.chunk.css"
+    "revision": "54250013942bbea968b3",
+    "url": "/mtg_stats/static/css/main.4f22d2be.chunk.css"
   },
   {
     "revision": "7900a49e93a273450edb",
@@ -20,12 +20,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mtg_stats/static/js/3.6120993e.chunk.js"
   },
   {
-    "revision": "52a68cc8d82877415746",
-    "url": "/mtg_stats/static/js/main.b1e1b114.chunk.js"
+    "revision": "54250013942bbea968b3",
+    "url": "/mtg_stats/static/js/main.de8f2875.chunk.js"
   },
   {
     "revision": "1619304c0141eed36379",
     "url": "/mtg_stats/static/js/runtime-main.8f9195cd.js"
+  },
+  {
+    "revision": "985001bf37733238607dc65591fd9b22",
+    "url": "/mtg_stats/static/media/Planewalker Dings.985001bf.otf"
   },
   {
     "revision": "bec1dc061960782df16e73f9881c9829",
