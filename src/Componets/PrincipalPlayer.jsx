@@ -9,12 +9,12 @@ const PrincipalPlayer = ({ gameID }) => {
   const [playerName, setPlayerName] = useState('');
   const [life, setLife] = useState(40);
   const [mana, setMana] = useState({
-    red: 0,
-    blue: 0,
-    green: 0,
-    black: 0,
-    white: 0,
-    colorless: 0,
+    a: 0,
+    b: 0,
+    c: 0,
+    d: 0,
+    e: 0,
+    x: 0,
   });
 
   // Cambiar vida y sincronizar con Firebase
@@ -38,12 +38,12 @@ const PrincipalPlayer = ({ gameID }) => {
 
         if (JSON.stringify(data.mana) !== JSON.stringify(mana)) {
           setMana(data.mana || {
-            red: 0,
-            blue: 0,
-            green: 0,
-            black: 0,
-            white: 0,
-            colorless: 0,
+            a: 0,
+            b: 0,
+            c: 0,
+            d: 0,
+            e: 0,
+            x: 0,
           });
         }
       }
@@ -55,7 +55,7 @@ const PrincipalPlayer = ({ gameID }) => {
     <div className="principalPlayer">
       <div className="infoPP">
         <h2>{playerName}</h2>
-        <p>Vida: {life}</p>
+        <h2> {life}</h2>
       </div>
       <ul className="lifeButtons">
         <li>
@@ -73,8 +73,8 @@ const PrincipalPlayer = ({ gameID }) => {
       </ul>
       <div className="manaButtons">
         {Object.keys(mana).map((color) => (
-          <div key={color}>
-            <p>{color.charAt(0).toUpperCase() + color.slice(1)}: {mana[color]}</p>
+          <div className='manaContenedor' key={color}>
+            <p >{color} {mana[color]}</p>
             <button onClick={() => changeMana(color, -1)}>-1</button>
             <button onClick={() => changeMana(color, +1)}>+1</button>
           </div>

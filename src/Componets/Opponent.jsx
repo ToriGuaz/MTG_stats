@@ -6,12 +6,12 @@ const Opponent = ({ opponentID, gameID }) => {
   const [lifeCount, setLifeCount] = useState(40);
   const [opponentName, setOpponentName] = useState('');
   const [mana, setMana] = useState({
-    red: 0,
-    blue: 0,
-    green: 0,
-    black: 0,
-    white: 0,
-    colorless: 0,
+    a: 0,
+    b: 0,
+    c: 0,
+    d: 0,
+    e: 0,
+    x: 0,
   });
 
   useEffect(() => {
@@ -28,12 +28,12 @@ const Opponent = ({ opponentID, gameID }) => {
         setOpponentName(data.playerName || 'Jugador sin nombre');
         setLifeCount(data.life !== undefined ? data.life : 40);
         setMana({
-          red: data.manaRed || 0,
-          blue: data.manaBlue || 0,
-          green: data.manaGreen || 0,
-          black: data.manaBlack || 0,
-          white: data.manaWhite || 0,
-          colorless: data.manaColorless || 0,
+          a: data.manaWhite || 0,
+          b: data.manaBlue || 0,
+          c: data.manaBlack || 0,
+          d: data.manaRed || 0,
+          e: data.manaGreen || 0,
+          x: data.manaColorless || 0,
         });
       } else {
         console.log('Datos del oponente no encontrados.');
