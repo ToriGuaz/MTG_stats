@@ -28,12 +28,12 @@ const Opponent = ({ opponentID, gameID }) => {
         setOpponentName(data.playerName || 'Jugador sin nombre');
         setLifeCount(data.life !== undefined ? data.life : 40);
         setMana({
-          a: data.manaWhite || 0,
-          b: data.manaBlue || 0,
-          c: data.manaBlack || 0,
-          d: data.manaRed || 0,
-          e: data.manaGreen || 0,
-          x: data.manaColorless || 0,
+          a: data.mana.a || 0,
+          b: data.mana.b || 0,
+          c: data.mana.c || 0,
+          d: data.mana.d || 0,
+          e: data.mana.e || 0,
+          x: data.mana.x || 0,
         });
       } else {
         console.log('Datos del oponente no encontrados.');
@@ -46,12 +46,11 @@ const Opponent = ({ opponentID, gameID }) => {
       <p>{opponentName}</p>
       <h2>{lifeCount}</h2>
       <ul>
-        <p>Maná:</p>
         {Object.entries(mana)
           .filter(([_, value]) => value !== 0) 
           .map(([type, value]) => (
-            <li key={type}>
-              {type.charAt(0).toUpperCase() + type.slice(1)}: {value}
+            <li className='manaButtons' key={type}>
+              {type} {value}
             </li>
           ))}
       </ul>

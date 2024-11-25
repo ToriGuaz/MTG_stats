@@ -59,7 +59,7 @@ function LandingPage({ onGameSelect }) {
     }
     if (gameID !== localStorage.getItem('gameID')) {
       removePlayerFromPreviousGame();
-    }
+    } else return;
     const playerID = localStorage.getItem('playerID') || push(ref(db, 'games')).key;
     localStorage.setItem('playerID', playerID);
     localStorage.setItem('playerName', inputPlayerName);
@@ -156,6 +156,7 @@ function LandingPage({ onGameSelect }) {
       <div>
         <label htmlFor="gameSelect">Elige un juego ya creado: </label>
         <select className='select' id="gameSelect" onChange={(e) => handleGameSelect(e.target.value)}>
+          <option>Seleccionar partida</option>
           {games.map((game) => (
             <option key={game.id} value={game.id}>
               {game.gameName}
