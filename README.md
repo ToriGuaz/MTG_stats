@@ -93,8 +93,8 @@ priorizamos correxion de errores
 -agregar contadores que falten -FALTAN: COMANDER - VENENO 
 -estilos (imputs, lists y alerts - a futuro animaciones) - no logre que el select quede con estilos jajan't -
 -definir que si una partida queda sin players, borrarla - DONE
--OPONENTE MUESTRE LOS CONTADORES DE MANA
--resolver bug de poder sumar jugador nuevo a partida sin haber creado una antes
+-OPONENTE MUESTRE LOS CONTADORES DE MANA - DONE
+-resolver bug de poder sumar jugador nuevo a partida sin haber creado una antes -DONE
 
 letras a colores de mana font planeswalker_dings:
 a: llanura
