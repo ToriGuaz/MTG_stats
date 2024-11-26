@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import PrincipalPlayer from './PrincipalPlayer';
 import { ref, get, getDatabase, child } from 'firebase/database';
-import Opponent from './Opponent'
-
-
+import Opponent from './Opponent';
+import logo  from '../Styles/Imgs/logo.svg';
 
 function Game( {gameID} ) {
     const [gameName, setGameName] = useState('');
@@ -46,6 +45,7 @@ function Game( {gameID} ) {
         return (
           <div className="game">
             <h2 className="gameName">Por favor, selecciona o crea una partida.</h2>
+            <img src={logo} alt=""/>
           </div>
         );
       }
