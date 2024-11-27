@@ -96,6 +96,8 @@ priorizamos correxion de errores
 -OPONENTE MUESTRE LOS CONTADORES DE MANA - DONE
 -resolver bug de poder sumar jugador nuevo a partida sin haber creado una antes -DONE
 
+
+
 letras a colores de mana font planeswalker_dings:
 a: llanura
 b: isla
