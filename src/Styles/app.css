@@ -37,9 +37,12 @@ html, body {
 }
 
 .landingPage {    
+    position: fixed;
+    top: 0;
+    left: 50px;
     background-color: #b2fab4;
     padding: 17px;
-    width: 100%; 
+    width: 95%; 
     text-align: center;
     border-bottom: 2px solid black;
     box-sizing: border-box;
@@ -52,7 +55,7 @@ html, body {
 }
 
 .hamburger {
-    cursor: pointer;
+   cursor: pointer;
   }
   
   .hamburger input {
@@ -176,7 +179,7 @@ select{
     -1px -1px 6px rgba(10, 8, 8, 0.4);       
 }
 
-option{
+option {
     color: #fdfafa;
     background-color: #1a1a1a;
 }
@@ -196,6 +199,8 @@ option{
 
 .game {
   padding: 10px;
-  
+  display: grid;
+  place-items: center; 
+  margin-top: 5%;
 }
 

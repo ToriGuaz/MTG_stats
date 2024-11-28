@@ -146,7 +146,7 @@ function LandingPage({ onGameSelect }) {
     <div className="landingPage">
       
 
-      <label>Únete a una partida o crea una nueva</label>
+      <label>Únete o crea una partida</label>
       <input
         className='input'
         type="text"

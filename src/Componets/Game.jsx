@@ -46,7 +46,7 @@ function Game({ gameID }) {
     return (
       <div className="game">
         <h2 className="gameName">Por favor, selecciona o crea una partida.</h2>
-        <img src={logo} alt="Logo" />
+        <img className='logo' src={logo} alt="Logo" />
       </div>
     );
   }

@@ -95,8 +95,7 @@ priorizamos correxion de errores
 -definir que si una partida queda sin players, borrarla - DONE
 -OPONENTE MUESTRE LOS CONTADORES DE MANA - DONE
 -resolver bug de poder sumar jugador nuevo a partida sin haber creado una antes -DONE
-
-
+-resolver bug de inicio de partida si el game existe en LS pero no en DB - DONE
 
 letras a colores de mana font planeswalker_dings:
 a: llanura
