@@ -1,25 +1,26 @@
 {
   "files": {
-    "main.css": "/mtg_stats/static/css/main.6b066be5.chunk.css",
-    "main.js": "/mtg_stats/static/js/main.9a902115.chunk.js",
-    "main.js.map": "/mtg_stats/static/js/main.9a902115.chunk.js.map",
-    "runtime-main.js": "/mtg_stats/static/js/runtime-main.8f9195cd.js",
-    "runtime-main.js.map": "/mtg_stats/static/js/runtime-main.8f9195cd.js.map",
-    "static/js/2.4066e14e.chunk.js": "/mtg_stats/static/js/2.4066e14e.chunk.js",
-    "static/js/2.4066e14e.chunk.js.map": "/mtg_stats/static/js/2.4066e14e.chunk.js.map",
-    "static/js/3.6120993e.chunk.js": "/mtg_stats/static/js/3.6120993e.chunk.js",
-    "static/js/3.6120993e.chunk.js.map": "/mtg_stats/static/js/3.6120993e.chunk.js.map",
+    "main.css": "/mtg_stats/static/css/main.edaaf10e.chunk.css",
+    "main.js": "/mtg_stats/static/js/main.323ed5a9.chunk.js",
+    "main.js.map": "/mtg_stats/static/js/main.323ed5a9.chunk.js.map",
+    "runtime-main.js": "/mtg_stats/static/js/runtime-main.de8add8d.js",
+    "runtime-main.js.map": "/mtg_stats/static/js/runtime-main.de8add8d.js.map",
+    "static/js/2.5cfcae83.chunk.js": "/mtg_stats/static/js/2.5cfcae83.chunk.js",
+    "static/js/2.5cfcae83.chunk.js.map": "/mtg_stats/static/js/2.5cfcae83.chunk.js.map",
+    "static/js/3.ab97c674.chunk.js": "/mtg_stats/static/js/3.ab97c674.chunk.js",
+    "static/js/3.ab97c674.chunk.js.map": "/mtg_stats/static/js/3.ab97c674.chunk.js.map",
     "index.html": "/mtg_stats/index.html",
-    "precache-manifest.cfc42cf14b8ee601641bc52e3dbf7e15.js": "/mtg_stats/precache-manifest.cfc42cf14b8ee601641bc52e3dbf7e15.js",
+    "precache-manifest.36b77f9169d904927d09cf542594d346.js": "/mtg_stats/precache-manifest.36b77f9169d904927d09cf542594d346.js",
     "service-worker.js": "/mtg_stats/service-worker.js",
-    "static/css/main.6b066be5.chunk.css.map": "/mtg_stats/static/css/main.6b066be5.chunk.css.map",
-    "static/js/2.4066e14e.chunk.js.LICENSE.txt": "/mtg_stats/static/js/2.4066e14e.chunk.js.LICENSE.txt",
-    "static/media/app.css": "/mtg_stats/static/media/mtg-background.e606683f.jpg"
+    "static/css/main.edaaf10e.chunk.css.map": "/mtg_stats/static/css/main.edaaf10e.chunk.css.map",
+    "static/js/2.5cfcae83.chunk.js.LICENSE.txt": "/mtg_stats/static/js/2.5cfcae83.chunk.js.LICENSE.txt",
+    "static/media/app.css": "/mtg_stats/static/media/mtg-background.c442320c.jpg",
+    "static/media/logo.svg": "/mtg_stats/static/media/logo.3b45b588.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.8f9195cd.js",
-    "static/js/2.4066e14e.chunk.js",
-    "static/css/main.6b066be5.chunk.css",
-    "static/js/main.9a902115.chunk.js"
+    "static/js/runtime-main.de8add8d.js",
+    "static/js/2.5cfcae83.chunk.js",
+    "static/css/main.edaaf10e.chunk.css",
+    "static/js/main.323ed5a9.chunk.js"
   ]
 }
