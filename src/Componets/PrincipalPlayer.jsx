@@ -17,6 +17,8 @@ const PrincipalPlayer = ({ gameID }) => {
     x: 0,
   });
 
+  const [showManaButtons, setShowManaButtons] = useState(false);
+
   // Cambiar vida y sincronizar con Firebase
   const changeLife = (newLife) => {
     setLife(newLife);
@@ -55,7 +57,7 @@ const PrincipalPlayer = ({ gameID }) => {
     <div className="principalPlayer">
       <div className="infoPP">
         <h2>{playerName}</h2>
-        <h2> {life}</h2>
+        <h2>{life}</h2>
       </div>
       <ul className="lifeButtons">
         <li>
@@ -71,15 +73,29 @@ const PrincipalPlayer = ({ gameID }) => {
           <button onClick={() => changeLife(life + 5)}>+5</button>
         </li>
       </ul>
-      <div className="manaButtons">
-        {Object.keys(mana).map((color) => (
-          <div className='manaContenedor' key={color}>
-            <p >{color} {mana[color]}</p>
-            <button onClick={() => changeMana(color, -1)}>-1</button>
-            <button onClick={() => changeMana(color, +1)}>+1</button>
-          </div>
-        ))}
-      </div>
+
+      {/* Botón Hamburguesa para los contadores de mana */}
+      <button
+        className="manaToggleButton"
+        onClick={() => setShowManaButtons(!showManaButtons)}
+      >
+        {showManaButtons ? 'Mana' : 'Mana'}
+      </button>
+
+      {/* Contadores de mana */}
+      {showManaButtons && (
+        <div className="manaButtons">
+          {Object.keys(mana).map((color) => (
+            <div className="manaContenedor" key={color}>
+              <p>
+                {color} {mana[color]}
+              </p>
+              <button onClick={() => changeMana(color, -1)}>-1</button>
+              <button onClick={() => changeMana(color, +1)}>+1</button>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

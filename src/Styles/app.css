@@ -184,17 +184,22 @@ option {
     background-color: #1a1a1a;
 }
 
+.manaToggleButton{
+  font-family: "RINGM";
+  border-radius: 45%;
+  height: min-content;
+}
+
 .manaButtons {
   font-family: "PlaneDings";
   font-size: 25px;
   list-style-type: none;
-  
 }
 
 .manaContenedor {
   display: inline-block;
   font-size: 30px;
-  border: solid 0.2px #0a0505;
+  border: none;
 }
 
 .game {
