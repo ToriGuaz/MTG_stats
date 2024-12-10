@@ -121,14 +121,20 @@ button {
     align-items: center;
 } 
 
+.infoPP{
+  text-align: center;
+}
+
 .oponente {
+    text-align: center;
     flex: 1 1 calc(33.33% - 20px);
     min-width: 200px;
     max-width: 300px;
     border-width: 1px;
-    border: 2px solid black;
+    border: 4px solid #b490ca;
     padding: 10px;
-    background-color: blue;
+    background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+    border-radius: 10% 50% 10% 50% / 50% 10% 50% 10%;
 }
 
 .listaDeOponentes {
@@ -199,11 +205,15 @@ option {
 .manaContenedor {
   display: flex;
   display: inline-block;
+  flex-direction: column;
   font-size: 35px;
-  border: none;
   margin-left: 5px;
-  justify-content: center;
+  align-content: flex-start;
   align-items: center;
+}
+
+.manaText{
+  margin: 0%;
 }
 
 .manaButtons{
@@ -212,6 +222,7 @@ option {
   border-radius: 50%;
   border: solid 0.5px black;
   font-weight: bold;
+  align-items: flex-start;
 }
 
 .game {

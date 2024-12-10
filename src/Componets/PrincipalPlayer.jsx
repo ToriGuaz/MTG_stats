@@ -57,7 +57,7 @@ const PrincipalPlayer = ({ gameID }) => {
     <div className="principalPlayer">
       <div className="infoPP">
         <h2>{playerName}</h2>
-        <h2>{life}</h2>
+        <h1>{life}</h1>
       </div>
       <ul className="lifeButtons">
         <li>
@@ -87,7 +87,7 @@ const PrincipalPlayer = ({ gameID }) => {
         <div className="mana">
           {Object.keys(mana).map((color) => (
             <div className="manaContenedor" key={color}>
-              <p>
+              <p className='manaText'>
                 {color} {mana[color]}
               </p>
               <button className="manaButtons" onClick={() => changeMana(color, -1)}>-</button>
