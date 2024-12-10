@@ -84,14 +84,14 @@ const PrincipalPlayer = ({ gameID }) => {
 
       {/* Contadores de mana */}
       {showManaButtons && (
-        <div className="manaButtons">
+        <div className="mana">
           {Object.keys(mana).map((color) => (
             <div className="manaContenedor" key={color}>
               <p>
                 {color} {mana[color]}
               </p>
-              <button onClick={() => changeMana(color, -1)}>-1</button>
-              <button onClick={() => changeMana(color, +1)}>+1</button>
+              <button className="manaButtons" onClick={() => changeMana(color, -1)}>-</button>
+              <button className="manaButtons" onClick={() => changeMana(color, +1)}>+</button>
             </div>
           ))}
         </div>

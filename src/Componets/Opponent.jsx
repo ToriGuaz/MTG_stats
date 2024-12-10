@@ -49,7 +49,7 @@ const Opponent = ({ opponentID, gameID }) => {
         {Object.entries(mana)
           .filter(([_, value]) => value !== 0) 
           .map(([type, value]) => (
-            <li className='manaButtons' key={type}>
+            <li className='mana' key={type}>
               {type} {value}
             </li>
           ))}

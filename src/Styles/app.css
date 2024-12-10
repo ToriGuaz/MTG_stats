@@ -118,7 +118,7 @@ button {
     display: flex;
     flex-wrap: wrap; 
     justify-content: center;
-    
+    align-items: center;
 } 
 
 .oponente {
@@ -190,16 +190,28 @@ option {
   height: min-content;
 }
 
-.manaButtons {
+.mana {
   font-family: "PlaneDings";
   font-size: 25px;
   list-style-type: none;
 }
 
 .manaContenedor {
+  display: flex;
   display: inline-block;
-  font-size: 30px;
+  font-size: 35px;
   border: none;
+  margin-left: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+.manaButtons{
+  size: 20px;
+  font-size: 12px;
+  border-radius: 50%;
+  border: solid 0.5px black;
+  font-weight: bold;
 }
 
 .game {
