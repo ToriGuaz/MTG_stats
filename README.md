@@ -104,3 +104,8 @@ c: pantano
 d: montaña
 e: bosque
 x: colorless
+
+-simbolo negativo en mana esta vacio, corregirlo
+-hacer boton de "clean all" contadores mana
+-hacer un footer hablando de la pagina 
+-acomodar opacidad de landing page, acomodar oponentes para cel
