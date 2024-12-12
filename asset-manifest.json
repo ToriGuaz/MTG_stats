@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/mtg_stats/static/css/main.40b4420d.chunk.css",
+    "main.css": "/mtg_stats/static/css/main.adb89604.chunk.css",
     "main.js": "/mtg_stats/static/js/main.367370db.chunk.js",
     "main.js.map": "/mtg_stats/static/js/main.367370db.chunk.js.map",
     "runtime-main.js": "/mtg_stats/static/js/runtime-main.de8add8d.js",
@@ -10,9 +10,9 @@
     "static/js/3.ab97c674.chunk.js": "/mtg_stats/static/js/3.ab97c674.chunk.js",
     "static/js/3.ab97c674.chunk.js.map": "/mtg_stats/static/js/3.ab97c674.chunk.js.map",
     "index.html": "/mtg_stats/index.html",
-    "precache-manifest.9211e9a2df615e413ae784747672a2fe.js": "/mtg_stats/precache-manifest.9211e9a2df615e413ae784747672a2fe.js",
+    "precache-manifest.ce53c21b906e0e1af893c9125840ce6e.js": "/mtg_stats/precache-manifest.ce53c21b906e0e1af893c9125840ce6e.js",
     "service-worker.js": "/mtg_stats/service-worker.js",
-    "static/css/main.40b4420d.chunk.css.map": "/mtg_stats/static/css/main.40b4420d.chunk.css.map",
+    "static/css/main.adb89604.chunk.css.map": "/mtg_stats/static/css/main.adb89604.chunk.css.map",
     "static/js/2.5cfcae83.chunk.js.LICENSE.txt": "/mtg_stats/static/js/2.5cfcae83.chunk.js.LICENSE.txt",
     "static/media/app.css": "/mtg_stats/static/media/mtg-background.c442320c.jpg",
     "static/media/logo.svg": "/mtg_stats/static/media/logo.3b45b588.svg"
@@ -20,7 +20,7 @@
   "entrypoints": [
     "static/js/runtime-main.de8add8d.js",
     "static/js/2.5cfcae83.chunk.js",
-    "static/css/main.40b4420d.chunk.css",
+    "static/css/main.adb89604.chunk.css",
     "static/js/main.367370db.chunk.js"
   ]
 }
