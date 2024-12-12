@@ -22,6 +22,14 @@
     .oponente {
         flex: 1 1 calc(100% - 20px); 
     }
+    .listaDeOponentes {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .landingPage { 
+      background-color:#732796;
+    }
 }
 
 html, body {
@@ -128,7 +136,7 @@ button {
 .oponente {
     text-align: center;
     flex: 1 1 calc(33.33% - 20px);
-    min-width: 200px;
+    min-width: 100px;
     max-width: 300px;
     border-width: 1px;
     border: 4px solid #b490ca;
